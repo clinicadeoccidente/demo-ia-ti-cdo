@@ -164,9 +164,40 @@
 @keyframes coverBreath{to{opacity:.35;transform:scale(1.05)}}
 @keyframes coverSweep{0%,45%{transform:translateX(-130%)}70%,100%{transform:translateX(130%)}}
 @media(prefers-reduced-motion:reduce){.slide.cinematic-cover,.slide.cinematic-cover:before,.slide.cinematic-cover:after{animation:none!important}}
+
+/* V14 — pantalla real 2/14: tres revelaciones, sin tocar las encuestas */
+.slide.human-cinema{padding:0;display:block;overflow:hidden;background:#031222}
+.slide.human-cinema::after{display:none}
+.human-photo{position:absolute;inset:0 0 0 30%;background:url("mensaje-humano-cinematografico.webp") center center/cover no-repeat;transform:scale(1.035);transition:transform 7s ease}
+.human-cinema.active .human-photo{transform:scale(1)}
+.human-vignette{position:absolute;inset:0;background:linear-gradient(90deg,#031222 0%,#031222f7 24%,#031222dc 42%,#03122250 62%,#0312220a 90%),linear-gradient(0deg,#031222e6 0%,transparent 28%)}
+.human-content{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,4.7vw,88px);padding-bottom:clamp(90px,12vh,130px);width:min(68%,1100px)}
+.human-kicker{font-size:clamp(12px,1.05vw,18px);color:#ff9d29;font-weight:800;letter-spacing:.21em;margin-bottom:clamp(26px,4vh,54px)}
+.human-scene{display:none;animation:humanReveal .75s cubic-bezier(.2,.8,.2,1) both}
+.human-cinema[data-stage="0"] .human-scene-0,.human-cinema[data-stage="1"] .human-scene-1,.human-cinema[data-stage="2"] .human-scene-2{display:block}
+.slide.human-cinema .human-scene h2{font-size:clamp(43px,5.2vw,94px);line-height:1.02;letter-spacing:-.055em;font-weight:900;max-width:1100px;text-shadow:0 4px 32px #0007}
+.human-scene h2 em{color:#ff9d29;font-style:normal}
+.slide.human-cinema .human-scene p{margin-top:clamp(22px,3vh,40px);font-size:clamp(19px,1.65vw,29px);line-height:1.4;max-width:700px;color:#e3f1ff}
+.human-footer{display:flex;flex-direction:column;gap:15px;margin-top:clamp(28px,5vh,62px);font-size:clamp(11px,.9vw,15px);letter-spacing:.09em;color:#9ff1ff;font-weight:700}
+.human-footer strong{font-size:clamp(16px,1.3vw,23px);color:#66e8f7}
+.human-stage-hint{color:#bed4e8;font-size:clamp(11px,.8vw,14px)}
+.human-cinema[data-stage="2"] .human-stage-hint{font-size:0}
+.human-cinema[data-stage="2"] .human-stage-hint:after{content:" · Mensaje completo · Siguiente pantalla";font-size:clamp(11px,.8vw,14px)}
+@keyframes humanReveal{from{opacity:0;transform:translateY(25px);filter:blur(8px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+@media(max-width:800px){.human-photo{left:8%;opacity:.65}.human-vignette{background:linear-gradient(90deg,#031222fa 0%,#031222dc 55%,#03122255 100%)}.human-content{width:95%;padding:28px 26px 100px}.slide.human-cinema .human-scene h2{font-size:clamp(37px,7vw,70px)}}
+@media(prefers-reduced-motion:reduce){.human-scene,.human-photo{animation:none!important;transition:none!important}}
 </style></head><body><main class="deck" aria-label="Presentación AI Experience 2026">
 <section class="slide active cinematic-cover"><div class="eyebrow">Clínica de Occidente · 5.º Seminario de Tecnologías en Salud</div><h1>AI <span class="accent">EXPERIENCE</span><br>2026</h1><p>Innovación que libera tiempo para cuidar vidas.</p><div class="footer">Pulsa → para comenzar</div></section>
-<section class="slide"><div class="eyebrow">01 · El mensaje que nos mueve</div><h2>No se trata de <span class="accent">reemplazar personas.</span></h2><p>No se trata de reemplazar médicos, enfermeros o colaboradores. Se trata de liberar su tiempo, aprovechar mejor la información y tomar mejores decisiones para cuidar a nuestros pacientes.</p><span class="pill">Tecnología al servicio del talento humano</span></section>
+<section class="slide human-cinema" data-cinematic="human" data-stage="0" aria-label="El mensaje que nos mueve">
+  <div class="human-photo" aria-hidden="true"></div><div class="human-vignette" aria-hidden="true"></div>
+  <div class="human-content">
+    <div class="human-kicker">01 · EL MENSAJE QUE NOS MUEVE</div>
+    <div class="human-scene human-scene-0"><h2>LA IA NO VIENE A<br><em>REEMPLAZARNOS.</em></h2><p>La tecnología no sustituye el criterio, la experiencia ni la empatía de nuestros profesionales.</p></div>
+    <div class="human-scene human-scene-1"><h2>VIENE A<br><em>DEVOLVERNOS TIEMPO.</em></h2><p>Menos tareas repetitivas. Mejor información. Más tiempo para nuestros pacientes.</p></div>
+    <div class="human-scene human-scene-2"><h2>TIEMPO PARA<br><em>CUIDAR VIDAS.</em></h2><p>Inteligencia artificial al servicio de médicos, enfermeros y colaboradores. Siempre con supervisión humana.</p></div>
+    <div class="human-footer"><span>TECNOLOGÍA AL SERVICIO DEL TALENTO HUMANO</span><div><strong class="v10-stage-counter">01 / 03</strong><span class="human-stage-hint"> · Pulsa → para continuar</span></div></div>
+  </div>
+</section>
 <section class="slide"><div class="eyebrow">02 · Ecosistema tecnológico</div><h2>Una clínica conectada</h2><div class="cards"><div class="card"><strong>SIIS</strong><span>Núcleo de información clínica y operativa.</span></div><div class="card"><strong>Orbit</strong><span>Soluciones que complementan el ecosistema.</span></div><div class="card"><strong>Panel de Analítica</strong><span>Información para gestionar y decidir.</span></div></div><p class="speaker">Presentar aquí únicamente capacidades verificadas de cada plataforma.</p></section>
 <section class="slide"><div class="eyebrow">03 · Tiempo para cuidar</div><h2>Menos digitación.<br><span class="accent">Más atención.</span></h2><div class="cards"><div class="card"><strong>Hablemos de Salud</strong><span>Asistencia por voz en la documentación clínica.</span></div><div class="card"><strong>Ecocardiogramas</strong><span>Transcripción y estructuración de informes.</span></div><div class="card"><strong>Validación humana</strong><span>El profesional revisa y aprueba el resultado.</span></div></div></section>
 <section class="slide"><div class="eyebrow">04 · Inteligencia aplicada</div><h2>Una clínica que <span class="accent">aprende</span></h2><div class="cards"><div class="card"><strong>Humanización con IA</strong><span>Comprender comentarios y experiencias.</span></div><div class="card"><strong>Auditoría clínica</strong><span>Apoyar la identificación de hallazgos.</span></div><div class="card"><strong>Analítica</strong><span>Convertir información en acciones.</span></div></div></section>

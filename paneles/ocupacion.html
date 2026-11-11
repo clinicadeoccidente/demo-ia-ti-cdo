@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ocupación Hospitalaria · réplica con datos sintéticos</title><link rel="stylesheet" href="comun.css">
+<style>
+body{font-family:"Segoe UI",Roboto,Arial,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);background-attachment:fixed;color:#2d3748;min-height:100vh;padding:12px 12px 40px}
+.card{background:#fff;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.12);padding:18px 20px;margin-bottom:16px}
+.title{display:flex;justify-content:space-between;align-items:center}
+.title h1{margin:0;font-size:26px;font-weight:800}.title p{margin:4px 0 0;color:#4a5568;font-size:13px}
+.lg{width:54px;text-align:center;font-size:8px;color:#718096}.lg i{display:block;width:34px;height:34px;margin:0 auto 2px;border-radius:50%;border:5px solid #a0aec0;box-shadow:inset 0 0 0 4px #e2e8f0}
+.tabs{display:flex;gap:4px;padding:0 10px;flex-wrap:wrap}.tabs button{border:0;background:none;padding:14px 16px;font-weight:700;color:#4a5568;cursor:pointer;border-bottom:3px solid transparent;font-size:13px}
+.tabs button.on{color:#6b46c1;border-bottom-color:#6b46c1}
+h2{font-size:19px;margin:0 0 14px;padding-bottom:10px;border-bottom:2px solid #edf2f7;font-weight:800;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.k5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.k{border-radius:10px;color:#fff;padding:14px 14px;position:relative;overflow:hidden;min-height:78px}
+.k small{font-size:10.5px;letter-spacing:1px;text-transform:uppercase;opacity:.9}.k b{display:block;font-size:26px;margin-top:6px;transition:.4s}.k em{font-style:normal;font-size:9.5px;display:block;opacity:.9}
+.k:after{content:attr(data-i);position:absolute;right:12px;top:12px;font-size:30px;opacity:.25}
+.g1{background:linear-gradient(135deg,#667eea,#764ba2)}.g2{background:linear-gradient(135deg,#11998e,#38ef7d)}.g3{background:linear-gradient(135deg,#f093fb,#f5576c)}.g4{background:linear-gradient(135deg,#0ba360,#3cba92)}.g5{background:linear-gradient(135deg,#4facfe,#00f2fe)}.g6{background:linear-gradient(135deg,#f6a623,#e67e22)}.g7{background:linear-gradient(135deg,#1fa2a6,#2c7a7b)}.g8{background:linear-gradient(135deg,#e53e3e,#c53030)}
+.det{margin-top:14px;font-size:16px;cursor:pointer;user-select:none;display:inline-flex;gap:8px;align-items:center}
+.det span{transition:transform .3s;display:inline-block}.det.open span{transform:rotate(90deg)}
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:10px}
+th{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;text-align:left;padding:9px 8px;font-size:10.5px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap}
+td{padding:8px;border-bottom:1px solid #edf2f7;white-space:nowrap}
+.cb{display:inline-block;min-width:22px;text-align:center;border-radius:4px;padding:2px 5px;font-size:10px;font-weight:700;color:#fff}
+.y{background:#ecc94b;color:#5f370e}.gr{background:#38a169}.rd{background:#e53e3e}.or{background:#dd6b20}
+.pb{display:inline-block;min-width:70px;border-radius:5px;color:#fff;font-weight:700;font-size:10px;text-align:center;padding:3px 6px}
+.hidden{display:none}
+.fab{position:fixed;right:22px;bottom:70px;width:46px;height:46px;border-radius:50%;background:#6b46c1;color:#fff;border:0;font-size:20px;box-shadow:0 6px 18px rgba(0,0,0,.3);cursor:pointer}
+.fab.spin{animation:sp 1s linear}@keyframes sp{to{transform:rotate(360deg)}}
+.k4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.k4 .k{text-align:center}.k4 .k b{font-size:28px}
+.filt{display:flex;gap:10px;align-items:center;margin:14px 0}.filt input{flex:1;padding:9px 12px;border:1px solid #cbd5e0;border-radius:8px}.pill{background:#edf2f7;border-radius:999px;padding:5px 10px;font-size:11px;font-weight:700}
+.filt{flex-wrap:wrap}.filt input{min-width:180px}
+.hm th{cursor:pointer}.hm td{text-align:center}.hm td:first-child{text-align:left;font-weight:700;white-space:normal;min-width:150px}
+.top .r{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:12px}.top .r b{width:120px;font-weight:600}.top .r i{display:block;height:14px;border-radius:4px;background:linear-gradient(90deg,#667eea,#764ba2);transition:width .8s}
+.urh{display:flex;justify-content:space-between;align-items:center}.dl{background:#1a365d;color:#fff;border:0;border-radius:6px;padding:7px 12px;font-size:11px;font-weight:700}
+.note{font-size:10.5px;color:#718096;margin-top:10px}
+@media (max-width:900px){.k5{grid-template-columns:1fr 1fr}.k4{grid-template-columns:1fr 1fr}.title h1{font-size:21px}}
+@media (max-width:420px){.k b{font-size:22px}.tabs button{padding:10px 8px;font-size:12px}}
+</style></head><body>
+<div class="card title"><div><h1>🏥 Ocupación Hospitalaria</h1><p>Monitoreo en tiempo real de la capacidad y ocupación de camas</p></div><div class="lg"><i></i>CLÍNICA DE OCCIDENTE</div></div>
+<div class="card" style="padding:0"><div class="tabs"><button class="on" data-t="rt">🏥 Ocupación en Tiempo Real</button><button data-t="st">▦ Por Servicio y Tercero</button><button data-t="cf">📅 Consulta por fecha</button></div></div>
+<div id="vrt"></div>
+<div id="vst" class="hidden"><div class="card"><div class="k4" id="k4"></div>
+ <div class="filt"><input id="fil" placeholder="Filtrar por tercero / EPS..."><span class="pill" id="nT"></span><span class="pill">Actualizado: hace un momento</span></div>
+ <div class="tw"><table class="hm" id="hm"></table></div></div>
+ <div class="card"><h2>Top 20 · servicios con más pacientes</h2><div class="top" id="top"></div></div></div>
+<div id="vcf" class="hidden"><div class="card"><h2>📅 Consulta por fecha</h2><div class="filt"><input type="date" id="fd" value="2026-10-15" style="flex:0 0 200px"><button class="dl" id="fb">Consultar</button></div><div id="fr" class="note">Elija una fecha para ver la foto de ocupación de ese día.</div></div></div>
+<button class="fab" id="fab" title="Actualizar">⟳</button>
+<script src="comun.js"></script>
+<script>
+let R=rng(21);const ri=(a,b)=>a+Math.floor(R()*(b-a+1));
+const SV=[['HOSPITALIZACIÓN',['Estación 2A','Estación 2B','Estación 3A','Estación 3B','Estación 4A','Estación 4B','Estación 5A','Estación 6A']],['TRASPLANTE MÉDULA',['Unidad de trasplante']],['UCI ADULTOS',['UCI 1','UCI 2','UCI 3']],['UCI NEONATAL',['UCI Neonatal']],['PARTOS',['Sala de partos']]];
+let DATA=[];
+function gen(){DATA=SV.map(([n,est])=>({n,est:est.map((e,i)=>{const t=ri(8,26),m=ri(0,2),o=Math.min(t-m,ri(Math.round(t*.7),t));return {cod:(n[0]+String(i+1)).padEnd(3,'0'),e,t,m,s:t-m,o,d:t-m-o};})}));}
+const pc=x=>(100*x).toFixed(1)+'%';
+const col=p=>p>=95?'#e53e3e':p>=85?'#dd6b20':'#38a169';
+function rt(){
+ $('#vrt').innerHTML=DATA.map((S,k)=>{const t=S.est.reduce((a,e)=>a+e.t,0),s=S.est.reduce((a,e)=>a+e.s,0),o=S.est.reduce((a,e)=>a+e.o,0),d=S.est.reduce((a,e)=>a+e.d,0);
+  return `<div class="card"><h2>🏥 ${S.n}</h2><div class="k5"><div class="k g1" data-i="🛏"><small>Capacidad instalada total</small><b>${t}</b></div><div class="k g2" data-i="✔"><small>Capacidad instalada disponible</small><b>${s}</b></div><div class="k g3" data-i="👤"><small>Ocupación</small><b>${o}</b></div><div class="k g4" data-i="🛏"><small>Camas disponibles</small><b>${d}</b></div><div class="k g5" data-i="%"><small>Porcentaje de ocupación</small><b>${pc(o/s)}</b></div></div>
+  <div class="det" data-k="${k}"><span>›</span> ☷ Detalle por Estación</div><div class="tw hidden" id="dt${k}"><table><tr><th>Estación</th><th>Descripción</th><th>Total camas</th><th>En mantenimiento</th><th>En servicio</th><th>Ocupadas</th><th>Camas disponibles</th><th>% Ocupación</th></tr>${S.est.map(e=>{const p=100*e.o/e.s;return `<tr><td><span class="cb" style="background:#edf2f7;color:#4a5568">${e.cod}</span></td><td>${e.e}</td><td>${e.t}</td><td><span class="cb y">${e.m}</span></td><td><span class="cb gr">${e.s}</span></td><td><span class="cb rd">${e.o}</span></td><td style="${e.d?'background:#fefcbf':''}">${e.d}</td><td><span class="pb" style="background:${col(p)}">${p.toFixed(1)}%</span></td></tr>`}).join('')}</table></div></div>`}).join('')+urg()+
+ `<div class="card"><h2>📈 Línea de Tiempo - Ocupación por Hora (Hoy)</h2><div style="text-align:center;font-size:12px;color:#4a5568;font-weight:700">Ocupación por Hora (índice sintético)</div><svg id="tl" viewBox="0 0 1200 240" width="1200" style="width:100%;height:auto"></svg><div class="note">■ Hospitalización ■ UCI Adultos ■ UCI Neonatal ■ Partos ■ Urgencias</div></div>`;
+ $$('.det').forEach(d=>d.onclick=()=>{d.classList.toggle('open');$('#dt'+d.dataset.k).classList.toggle('hidden');});
+ const hrs=Array.from({length:18},(_,i)=>String(i).padStart(2,'0')+':00');
+ lineChart($('#tl'),{labels:hrs,series:[['#667eea',150],['#f093fb',40],['#4facfe',12],['#38a169',6],['#e53e3e',80]].map(([c,b])=>{let v=b;return {color:c,w:2.5,data:hrs.map(()=>{v=Math.max(1,Math.round(v+ri(-3,3)));return v;})};})});
+}
+function urg(){const c=ri(80,95),o=ri(70,c),sv=ri(40,80),pr=Math.round(100*(o+sv+1)/c);
+ const areas=['Críticos 1 + Expansión','Críticos 2 + Expansión','Sala obs 1','Sala obs 2','Urgencias Expansión','Pediatría + Expansión'];
+ return `<div class="card" style="border-left:6px solid #1a365d"><div class="urh"><h2 style="border:0;margin:0">🚑 URGENCIAS</h2><span class="note" style="margin:0">% de presión sobre capacidad instalada <button class="dl">📄 Descargar pacientes</button></span></div>
+ <div class="k5" style="margin-top:10px"><div class="k g1" data-i="🛏"><small>Capacidad instalada</small><b>${c}</b><em>camillas · sillas · expansión · PV</em></div><div class="k g3" data-i="👤"><small>Ocupación instalada</small><b>${o}</b><em>${pc(o/c)}</em></div><div class="k g6" data-i="◈"><small>Reanimación</small><b>${ri(0,2)}/2</b><em>emergencia, no instalada</em></div><div class="k g7" data-i="🛏"><small>En sala virtual</small><b>${sv}</b><em>sin cama asignada</em></div><div class="k g8" data-i="%"><small>% Presión</small><b>${pr}%</b><em>total / instalada</em></div></div>
+ <div class="note">Instalada = camilla + silla de observación + expansión + PV. La sala virtual no suma a la capacidad. El % de presión es del servicio completo y puede superar 100%.</div>
+ <div class="det open" data-k="u"><span>›</span> ☰ Detalle por área</div><div class="tw" id="dtu"><table><tr><th>Área</th><th>Camillas</th><th>Sillas</th><th>Expansión</th><th>PV</th><th>%</th></tr>${areas.map(a=>{const t=ri(4,9),u=ri(Math.max(1,t-3),t),ex=ri(0,1)?`<span class="cb or">${ri(1,3)}/${ri(3,4)}</span>`:'—';return `<tr><td><b>${a}</b></td><td><b>${u}/${t}</b></td><td>${ri(0,1)?ri(4,8)+'/'+ri(8,12):'—'}</td><td>${ex}</td><td>${ri(0,3)?'—':'<span class="cb or">2/3</span>'}</td><td>${(100*u/t).toFixed(1)}%</td></tr>`}).join('')}</table></div></div>`;}
+/* Servicio × Tercero */
+const TER=['EPS Alfa','EPS Beta','EPS Gamma','EPS Delta','Prepagada Omega','Póliza Sigma','Aseguradora Kappa','EPS Lambda','Plan Zeta'];
+const SERV=['Hospitalización Estación 2A','Hospitalización Estación 2B','Hospitalización Estación 3A','Hospitalización Estación 3B','Hospitalización Estación 4A','UCI Adultos 1','UCI Adultos 2','UCI Neonatal','Urgencias Observación','Partos'];
+let M=[],sortC=-1,sortD=-1;
+function genM(){M=SERV.map(s=>({s,v:TER.map((_,j)=>ri(0,9)>(j<4?2:6)?ri(1,12):0)}));}
+function st(){
+ const f=$('#fil').value.toLowerCase();const cols=TER.map((t,j)=>({t,j})).filter(c=>c.t.toLowerCase().includes(f));
+ let rows=M.slice();if(sortC>=0)rows.sort((a,b)=>(a.v[sortC]-b.v[sortC])*sortD);
+ const tot=M.reduce((a,r)=>a+r.v.reduce((x,y)=>x+y,0),0);
+ $('#k4').innerHTML=`<div class="k g1"><b>${tot}</b><small>Pacientes actuales</small></div><div class="k g2"><b>${SERV.length}</b><small>Servicios</small></div><div class="k g3"><b>${TER.length}</b><small>Terceros / EPS</small></div><div class="k g5"><b>${M.reduce((a,r)=>a+r.v[0],0)}</b><small>EPS Alfa</small></div>`;
+ $('#nT').textContent=cols.length+' terceros';
+ $('#hm').innerHTML=`<tr><th>Servicio ⇅</th>${cols.map(c=>`<th data-j="${c.j}">${c.t} ⇅</th>`).join('')}</tr>`+rows.map(r=>`<tr><td>${r.s}</td>${cols.map(c=>{const v=r.v[c.j];return `<td style="background:${v?`rgba(102,126,234,${(.15+v/14).toFixed(2)})`:'#fff'};color:${v>8?'#fff':'#2d3748'}">${v||'—'}</td>`}).join('')}</tr>`).join('');
+ $$('#hm th[data-j]').forEach(th=>th.onclick=()=>{const j=+th.dataset.j;sortD=sortC===j?-sortD:-1;sortC=j;st();});
+ const tops=M.map(r=>({s:r.s,n:r.v.reduce((a,b)=>a+b,0)})).sort((a,b)=>b.n-a.n);const mx=tops[0].n;
+ $('#top').innerHTML=tops.map(t=>`<div class="r"><b>${t.s.replace('Hospitalización ','Hosp. ')}</b><i style="width:${70*t.n/mx}%"></i><span>${t.n}</span></div>`).join('');
+}
+$('#fil').oninput=st;
+$$('.tabs button').forEach(b=>b.onclick=()=>{$$('.tabs button').forEach(x=>x.classList.toggle('on',x===b));['rt','st','cf'].forEach(t=>$('#v'+t).classList.toggle('hidden',t!==b.dataset.t));if(b.dataset.t==='st')st();});
+$('#fb').onclick=()=>{R=rng(+$('#fd').value.replace(/-/g,''));const t=ri(240,280),o=ri(200,t);$('#fr').innerHTML=`<div class="k5" style="margin-top:6px"><div class="k g1"><small>Capacidad total</small><b>${t}</b></div><div class="k g3"><small>Ocupación</small><b>${o}</b></div><div class="k g4"><small>Camas disponibles</small><b>${t-o}</b></div><div class="k g5"><small>% Ocupación</small><b>${pc(o/t)}</b></div><div class="k g8"><small>% Presión urgencias</small><b>${ri(110,170)}%</b></div></div><p class="note">Foto del ${$('#fd').value} (datos sintéticos).</p>`;};
+$('#fab').onclick=()=>{$('#fab').classList.add('spin');setTimeout(()=>$('#fab').classList.remove('spin'),1000);gen();rt();genM();};
+gen();genM();rt();
+window.runAuto=async()=>{await sleep(1300);await tap('.det[data-k="0"]');await sleep(1600);await scrollToEl('.det[data-k="2"]',300);await sleep(600);await tap('#fab');await sleep(1500);await scrollToY(0);
+ await tap('.tabs [data-t="st"]');await sleep(1300);await tap('#hm th[data-j="1"]');await sleep(1300);await typeInto('#fil','EPS',120);await sleep(1500);await scrollToEl('#top',40);await sleep(1500);await scrollToY(0);await tap('.tabs [data-t="rt"]');await sleep(800);};
+if(AUTO&&QS.get('hold')!=='1')runAuto();
+</script></body></html>

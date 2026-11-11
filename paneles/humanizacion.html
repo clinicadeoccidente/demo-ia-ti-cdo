@@ -1,0 +1,116 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Track Humanización · réplica con datos sintéticos</title><link rel="stylesheet" href="comun.css">
+<style>
+body{font-family:"Inter","Segoe UI",Arial,sans-serif;background:#F4F6FB;color:#1E293B;font-size:13px}
+.hd{background:linear-gradient(90deg,#1E1B4B,#312E81 55%,#4338CA);color:#fff;display:flex;align-items:center;gap:10px;padding:12px 20px;flex-wrap:wrap}
+.hd .lg{width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.15);display:grid;place-items:center}.hd h1{font-size:16px;margin:0}
+.hd .r{margin-left:auto;display:flex;gap:8px}.hd .r span{background:rgba(255,255,255,.15);border-radius:999px;padding:5px 10px;font-size:11px}.hd .r button{background:#fff;color:#1E1B4B;border:0;border-radius:999px;padding:5px 12px;font-weight:700}
+.tabs{display:flex;gap:4px;margin:14px 20px;background:#fff;border-radius:999px;padding:5px;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow-x:auto;white-space:nowrap}
+.tabs button{border:0;background:none;border-radius:999px;padding:8px 14px;font-weight:600;color:#334155;cursor:pointer;font-size:12.5px}
+.tabs button.on{background:linear-gradient(90deg,#4F46E5,#2563EB);color:#fff}
+.wrap{padding:0 20px 40px}
+.k5{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.k4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+.kc{background:#fff;border-radius:12px;padding:10px 14px;box-shadow:0 1px 3px rgba(0,0,0,.08);border-top:4px solid #6366F1}
+.kc small{font-size:10.5px;letter-spacing:.6px;color:#475569;text-transform:uppercase}.kc b{display:block;font-size:22px;margin:2px 0}.kc em{font-style:normal;font-size:10px;color:#64748B;text-transform:uppercase}
+.c1{border-top-color:#8B5CF6}.c2{border-top-color:#06B6D4}.c3{border-top-color:#A855F7}.c4{border-top-color:#10B981}.c5{border-top-color:#F97316}
+.g2{display:grid;grid-template-columns:330px 1fr;gap:14px;margin-top:14px}
+.box{background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:14px 16px}
+.g2>*,.box,.k5>*,.k4>*{min-width:0}
+.box h3{font-size:14px;margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid #EEF2F7}
+input,select,textarea{width:100%;padding:8px 10px;border:1px solid #D7DCE6;border-radius:8px;font:inherit;font-size:12.5px;margin-bottom:8px;background:#fff}
+.bt{width:100%;border:0;border-radius:8px;padding:9px;font-weight:700;color:#fff;background:linear-gradient(90deg,#4F46E5,#0EA5E9);cursor:pointer}
+.bo{width:100%;border:1.5px solid #3B82F6;border-radius:8px;padding:6px;color:#1D4ED8;background:#fff;font-weight:700;margin-bottom:6px}
+.fl{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:center}.fl input,.fl select{margin:0}
+table{width:100%;border-collapse:collapse;font-size:11.5px}th{background:#F1F5F9;text-align:left;padding:7px 6px;font-size:10px;letter-spacing:.4px;text-transform:uppercase;white-space:nowrap}
+td{padding:8px 6px;border-bottom:1px solid #fff;vertical-align:top}tr.pk td{background:#F37C7C;color:#1F2937}tr.sel td{outline:2px solid #4F46E5}
+.pr{background:#fff;border-radius:999px;padding:2px 8px;font-size:9.5px;font-weight:800}
+.sub{display:flex;gap:16px;border-bottom:1px solid #E2E8F0;margin:10px 0}.sub button{border:0;background:none;padding:8px 2px;color:#2563EB;font-weight:600;cursor:pointer}.sub button.on{color:#0F172A;border-bottom:2px solid #0F172A}
+.sres{display:grid;grid-template-columns:1.6fr 1fr;gap:14px}.sres>*{min-width:0}@media (max-width:900px){.sres{grid-template-columns:1fr}.sem{font-size:11px}}
+.sub{overflow-x:auto;white-space:nowrap}
+.q{border-bottom:1px solid #F1F5F9;padding:10px 0;display:grid;grid-template-columns:110px 1fr;gap:12px;align-items:center}.q b{display:block;font-size:12px;grid-column:1/-1}
+.lg2 div{font-size:11px;display:flex;gap:6px;align-items:center}.lg2 i{width:9px;height:9px;border-radius:50%;display:inline-block}
+.sem{font-size:11px}.sem td{padding:4px 6px;border-bottom:1px solid #F1F5F9}.sem .v{background:#16A34A;color:#fff;border-radius:4px;padding:1px 6px;font-weight:700}.sem .a{background:#F59E0B}.sem .r{background:#DC2626}
+.cm{display:flex;gap:10px;align-items:center;padding:9px 10px;border-radius:10px;background:#F8FAFC;margin-bottom:7px}
+.cm q{flex:1}.cm .lb{display:flex;gap:5px;opacity:0;transform:scale(.6);transition:.35s}.cm.cl .lb{opacity:1;transform:none}
+.cm .lb span{font-size:10.5px;font-weight:800;border-radius:999px;padding:3px 8px;white-space:nowrap}
+.sp{background:#DCFCE7;color:#166534}.sn{background:#FEE2E2;color:#991B1B}.su{background:#FEF3C7;color:#92400E}.st{background:#E0E7FF;color:#3730A3}
+.chips button{border:1px solid #D7DCE6;background:#fff;border-radius:999px;padding:5px 11px;font-weight:700;font-size:11.5px;margin:0 4px 6px 0;cursor:pointer}.chips button.on{background:#4F46E5;color:#fff;border-color:#4F46E5}
+.hero{background:#173D2E;color:#fff;border-radius:14px;padding:26px 28px;display:grid;grid-template-columns:1.4fr 1fr;gap:20px;align-items:center}
+.hero h2{font-family:Georgia,serif;font-size:34px;margin:0 0 6px;line-height:1.1}.hero small{color:#F6C35B;font-weight:700}
+.ill{height:150px;border-radius:12px;background:radial-gradient(circle at 30% 40%,#F6C35B 0 22%,transparent 23%),radial-gradient(circle at 65% 60%,#E76F51 0 26%,transparent 27%),linear-gradient(135deg,#F4E3C1,#E9C893)}
+.band{height:70px;border-radius:12px;margin:14px 0;background:linear-gradient(90deg,#F4E3C1,#E9C893 40%,#264653)}
+.ser{font-family:Georgia,serif;font-size:22px;margin:6px 0}
+.bars .r{display:flex;align-items:center;gap:8px;margin:5px 0;font-size:11.5px}.bars .r b{width:150px;font-weight:600;text-align:right}.bars .r i{display:block;height:12px;border-radius:3px;transition:width .8s}
+.hidden{display:none!important}
+.ph{text-align:center;color:#64748B;padding:40px 10px}
+@media (max-width:900px){.k5{grid-template-columns:1fr 1fr}.k4{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr!important}.fl{grid-template-columns:1fr 1fr}.hero{grid-template-columns:1fr}.hero h2{font-size:26px}.q{grid-template-columns:90px 1fr}.wrap{padding:0 12px 40px}.tabs{margin:12px}}
+</style></head><body>
+<div class="hd"><div class="lg">♡</div><h1>Track Humanización</h1><div class="r"><span>USR-DEMO</span><span>gestor_demo</span><button>Salir</button></div></div>
+<div class="tabs" id="tabs"><button class="on" data-t="op">Operación</button><button data-t="cc">Casos cerrados</button><button data-t="es">Encuesta de satisfacción</button><button data-t="ee">Estadísticas encuestas</button><button data-t="pq">PQRSF</button><button data-t="pr">Presentación</button><button data-t="eg">Encuesta Egresos</button><button data-t="pa">Paquetes/Chequeo</button><button data-t="ad">Administración</button></div>
+<div class="wrap">
+<div id="vop">
+ <div class="k5"><div class="kc c1"><small>Total solicitudes</small><b id="kT">0</b></div><div class="kc c2"><small>Abiertas</small><b id="kA">0</b></div><div class="kc c3"><small>En proceso</small><b id="kP">0</b></div><div class="kc c4"><small>Cerradas</small><b>1.284</b></div><div class="kc c5"><small>Pendientes encuestas (cerradas)</small><b>173</b></div></div>
+ <div class="k4"><div class="kc c2"><small>Promedio hasta 1.ª actividad</small><b>3 h</b><em>ejemplo</em></div><div class="kc c3"><small>Promedio hasta estado en proceso</small><b>5 h</b><em>ejemplo</em></div><div class="kc c1"><small>Promedio hasta cierre</small><b>2 d</b><em>ejemplo</em></div><div class="kc c4"><small>Promedio antigüedad (abiertas)</small><b>—</b><em>ninguna abierta en el filtro</em></div></div>
+ <div class="g2"><div class="box"><h3>Crear solicitud</h3><div style="display:flex;gap:6px"><input placeholder="Paciente ID" value="DEMO-0000"><select style="width:140px"><option>Cédula ciudadanía</option></select></div><button class="bo">Buscar paciente</button>
+  <small style="color:#64748B">Paciente de ejemplo cargado</small><input id="causa" placeholder="Causa de la solicitud" value="Solicitud de información"><select id="prio"><option>Baja</option><option selected>Moderada</option><option>Alta</option></select><textarea id="obs" placeholder="Observación">Familiar solicita información del proceso (ejemplo).</textarea><button class="bt" id="guardar">Guardar solicitud</button></div>
+  <div class="box"><div class="fl"><input type="date" value="2026-10-01"><input type="date" value="2026-10-31"><select><option>Estado</option></select><select><option>Estación</option></select><input placeholder="Causa..."><select><option>Todos los gestores</option></select></div><button class="bt" style="width:150px;margin:10px 0">Filtrar</button>
+   <div class="tw"><table><thead><tr><th>ID</th><th>Tipo ID</th><th>Paciente ID</th><th>Paciente</th><th>Sexo</th><th>Edad</th><th>Email</th><th>Contacto</th><th>EPS</th><th>Causa</th><th>Prioridad</th><th>Gestor</th><th>Servicio origen</th></tr></thead><tbody id="sol"></tbody></table></div></div></div>
+ <div class="g2"><div class="box"><h3>Gestión de actividad</h3><input id="solsel" placeholder="Seleccione fila o vacío para nueva solicitud"><input placeholder="Actividad" value="Acompañamiento y orientación"><select><option>Sin asignar</option><option>Gestor Demo 1</option></select><button class="bt" style="background:linear-gradient(90deg,#059669,#10B981)" id="act">Crear actividad</button></div>
+  <div class="box"><div class="sub"><button class="on">Abiertas</button><button>Programadas</button><button>Cronograma Mensual de Actividades</button></div><small>Actividades abiertas</small><div class="tw"><table><thead><tr><th>Sol.</th><th>Creada</th><th>Actividad</th><th>Estado</th><th>Gestor</th></tr></thead><tbody id="acts"></tbody></table></div></div></div>
+</div>
+<div id="vee" class="hidden">
+ <div class="box"><div class="fl"><div><small>Desde</small><input type="date" value="2026-01-01"></div><div><small>Hasta</small><input type="date" value="2026-10-31"></div><div><small>Aseguradora</small><select id="aseg"><option>Todas</option><option>EPS Alfa</option><option>EPS Beta</option><option>Prepagada Omega</option></select></div><div><small>Demográfico</small><select><option>Pacientes egresados</option></select></div><div><small>Año</small><select><option>2026</option></select></div></div>
+ <div class="sub"><button class="on">Encuestas</button><button>Desempeño</button></div>
+ <div class="k4" style="grid-template-columns:repeat(2,minmax(0,240px))"><div class="kc c1"><small>Total respondidas</small><b id="eT">0</b></div><div class="kc" style="border-top-color:#DC2626"><small>% Satisfacción global</small><b id="eS" style="color:#DC2626">0%</b><em>meta de ejemplo: 90%</em></div></div>
+ <div class="sub" id="esub"><button class="on" data-s="res">Resumen</button><button data-s="sg">Satisfacción global</button><button data-s="dim">Dimensiones</button><button data-s="nps">NPS</button><button data-s="com">Comentarios</button></div>
+ <div id="sres" class="sres"><div id="qs"></div><div><h3 style="font-size:13px">Por estación / servicio</h3><table class="sem" id="sem"></table></div></div>
+ <div id="scom" class="hidden"><div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px"><button class="bt" style="width:auto;padding:9px 16px" id="clas">✨ Clasificar con IA</button><div class="chips" id="cf"><button class="on" data-s="all">Todos</button><button data-s="p">😊 Positivo</button><button data-s="u">😐 Neutro</button><button data-s="n">😟 Negativo</button></div></div><div id="coms"></div><small style="color:#64748B">Comentarios inventados para la demostración. La IA real los clasifica por sentimiento y tema; aquí no se muestran porcentajes reales.</small></div>
+ <div id="sotro" class="hidden ph">Vista resumida en la réplica.</div></div>
+</div>
+<div id="vpr" class="hidden">
+ <div class="hero"><div><h2>Así vivió el paciente este tiempo</h2><small>Toda la clínica</small><p style="opacity:.85">Datos sintéticos para mostrar cómo se cuenta la historia: qué nos contaron, cómo nos calificaron y qué hicimos.</p></div><div class="ill"></div></div>
+ <div class="band"></div><div class="ser">Lo que nos contaron</div>
+ <div class="k5" id="pk"></div>
+ <div class="g2" style="grid-template-columns:1fr 1fr"><div class="box"><h3>A tiempo o tarde</h3><svg id="pd" viewBox="0 0 100 100" style="width:180px;display:block;margin:auto"></svg></div><div class="box"><h3>De qué tipo eran</h3><div class="bars" id="pb"></div></div></div>
+ <div class="band" style="background:linear-gradient(90deg,#E9C893,#E76F51 50%,#264653)"></div><div class="ser">Cómo nos calificaron</div><div class="k4" id="pk2"></div>
+</div>
+<div id="vph" class="hidden box ph">Esta pestaña existe en el panel real; en la réplica se muestran Operación, Estadísticas encuestas y Presentación.</div>
+</div>
+<script src="comun.js"></script>
+<script>
+const R=rng(33);const ri=(a,b)=>a+Math.floor(R()*(b-a+1));
+let SOL=[{id:9101,t:'CC',pid:'DEMO-1001',n:'Paciente Demo Uno',s:'F',e:'61 años',m:'paciente01@ejemplo.test',c:'300 000 0001',eps:'EPS Alfa',ca:'Direccionamiento a otro servicio',p:'BAJA',g:'GES-DEMO',so:'Estación demo'},{id:9102,t:'TI',pid:'DEMO-1002',n:'Paciente Demo Dos',s:'M',e:'15 años',m:'paciente02@ejemplo.test',c:'300 000 0002',eps:'EPS Beta',ca:'Solicitud de certificado',p:'BAJA',g:'GES-DEMO',so:'UCI demo'}];
+let ACT=[];
+function op(){$('#kT').textContent=SOL.length;$('#kA').textContent=SOL.filter(s=>!s.pr).length;$('#kP').textContent=SOL.filter(s=>s.pr).length;
+ $('#sol').innerHTML=SOL.map(s=>`<tr class="pk" data-id="${s.id}"><td>${s.id}</td><td>${s.t}</td><td>${s.pid}</td><td><b>${s.n}</b></td><td>${s.s}</td><td>${s.e}</td><td>${s.m}</td><td>${s.c}</td><td>${s.eps}</td><td>${s.ca}</td><td><span class="pr">${s.p}</span></td><td>${s.g}<br><u style="color:#1D4ED8">Asignar</u></td><td>${s.so}</td></tr>`).join('');
+ $$('#sol tr').forEach(tr=>tr.onclick=()=>{$$('#sol tr').forEach(x=>x.classList.remove('sel'));tr.classList.add('sel');$('#solsel').value=tr.dataset.id;});
+ $('#acts').innerHTML=ACT.length?ACT.map(a=>`<tr><td>${a.s}</td><td>hoy</td><td>${a.a}</td><td><span class="pr" style="background:#DBEAFE">abierto</span></td><td>Gestor Demo 1</td></tr>`).join(''):'<tr><td colspan="5" style="color:#94A3B8">Sin actividades abiertas</td></tr>';}
+$('#guardar').onclick=()=>{const id=9100+SOL.length+1;SOL.unshift({id,t:'CC',pid:'DEMO-'+(1000+SOL.length+1),n:'Paciente Demo '+['Tres','Cuatro','Cinco','Seis'][SOL.length%4],s:'F',e:ri(20,80)+' años',m:`paciente0${SOL.length+1}@ejemplo.test`,c:'300 000 000'+(SOL.length+1),eps:'EPS Gamma',ca:$('#causa').value,p:$('#prio').value.toUpperCase(),g:'—',so:'Estación demo'});op();};
+$('#act').onclick=()=>{const s=$('#solsel').value||'nueva';ACT.unshift({s,a:'Acompañamiento y orientación'});const x=SOL.find(z=>String(z.id)===s);if(x)x.pr=1;op();};
+/* estadísticas */
+const PQ=[['¿Por fuera usted, ¿quién realiza esta encuesta?',[['Acompañante',ri(50,70),'#F97316'],['Paciente',0,'#3B82F6']]],['¿Cómo calificaría su experiencia global respecto a los servicios recibidos?',[['Buena',ri(45,60),'#3B82F6'],['Muy buena',ri(20,30),'#F97316'],['Regular',0,'#94A3B8']]],['¿Recomendaría esta institución a sus familiares y amigos?',[['Definitivamente sí',ri(55,70),'#3B82F6'],['Probablemente sí',ri(15,25),'#F97316'],['No',0,'#DC2626']]],['¿Le explicaron sus derechos y deberes?',[['Sí',ri(70,85),'#3B82F6'],['No',0,'#F97316']]]];
+PQ.forEach(q=>{const s=q[1].reduce((a,x)=>a+x[1],0);q[1][q[1].length-1][1]=Math.max(3,100-s);});
+function ee(){const asg=$('#aseg').selectedIndex;$('#eT').textContent=[412,138,97,54][asg];$('#eS').textContent=[86.4,88.1,84.9,91.2][asg]+' %';
+ $('#qs').innerHTML=PQ.map((q,i)=>`<div class="q"><b>${q[0]}</b><svg viewBox="0 0 100 100" id="pq${i}" style="width:100px"></svg><div class="lg2">${q[1].map(x=>`<div><i style="background:${x[2]}"></i>${x[0]} (${x[1]}%)</div>`).join('')}</div></div>`).join('');
+ PQ.forEach((q,i)=>pie($('#pq'+i),q[1].map(x=>({v:x[1],c:x[2]}))));
+ const st=['Laboratorio','Urgencias','Hospitalización','Consulta externa','Fisioterapia','Imágenes diagnósticas','Cirugía'];
+ $('#sem').innerHTML='<tr><th>Estación / servicio</th><th>Respuestas</th><th>% cumpl.</th></tr>'+st.map(s=>{const p=ri(78,99);return `<tr><td>${s}</td><td>${ri(10,80)}</td><td><span class="v ${p<85?'r':p<92?'a':''}">${p}%</span></td></tr>`}).join('');}
+$('#aseg').onchange=ee;
+$$('#esub button').forEach(b=>b.onclick=()=>{$$('#esub button').forEach(x=>x.classList.toggle('on',x===b));const s=b.dataset.s;$('#sres').style.display=s==='res'?'grid':'none';$('#scom').classList.toggle('hidden',s!=='com');$('#sotro').classList.toggle('hidden',s==='res'||s==='com');});
+const CM=[['La enfermera de la noche fue muy atenta con mi mamá.','p','Trato'],['Esperamos mucho en admisiones y nadie nos explicó.','n','Espera'],['El médico explicó todo con paciencia.','p','Información'],['La habitación estaba limpia, pero hacía mucho frío.','u','Instalaciones'],['Me pidieron los mismos papeles varias veces.','n','Trámites'],['Excelente atención del personal de cirugía.','p','Trato'],['La comida llegaba fría.','n','Alimentación'],['La salida fue rápida y con instrucciones claras.','p','Información']];
+const SL={p:['😊 Positivo','sp'],n:['😟 Negativo','sn'],u:['😐 Neutro','su']};let cf='all',done=false;
+function coms(){$('#coms').innerHTML=CM.filter(c=>!done||cf==='all'||c[1]===cf).map(c=>`<div class="cm${done?' cl':''}"><q>${c[0]}</q><div class="lb"><span class="${SL[c[1]][1]}">${SL[c[1]][0]}</span><span class="st">${c[2]}</span></div></div>`).join('');$$('#cf button').forEach(b=>b.classList.toggle('on',b.dataset.s===cf));}
+$('#clas').onclick=async()=>{done=false;cf='all';coms();const els=$$('#coms .cm');for(const e of els){e.classList.add('cl');await sleep(220);}done=true;coms();};
+$$('#cf button').forEach(b=>b.onclick=()=>{done=true;cf=b.dataset.s;coms();});
+/* presentación */
+function pr(){$('#pk').innerHTML=[['Manifestaciones',ri(60,120),'#E0F2F1'],['A tiempo',ri(88,97)+'%','#FFF7E6'],['Cerradas',ri(40,70),'#E0F2F1'],['No cerradas',ri(1,6),'#FDECEC'],['Felicitaciones',ri(15,35),'#E0F2F1']].map(k=>`<div class="kc" style="background:${k[2]};border-top:0"><small>${k[0]}</small><b>${k[1]}</b></div>`).join('');
+ pie($('#pd'),[{v:ri(85,95),c:'#1F6F50'},{v:ri(5,12),c:'#E76F51'}],true);
+ const T=['Trato','Oportunidad','Información','Trámites','Instalaciones','Alimentación','Seguridad'];const cs=['#2563EB','#0EA5E9','#22C55E','#EF4444','#F97316','#A855F7','#14B8A6'];
+ $('#pb').innerHTML=T.map((t,i)=>`<div class="r"><b>${t}</b><i style="width:${ri(10,60)}%;background:${cs[i]}"></i></div>`).join('');
+ $('#pk2').innerHTML=[['Encuestas',ri(300,450)],['NPS',ri(55,75)],['Satisfacción',ri(84,92)+'%'],['Recomendación',ri(80,90)+'%']].map(k=>`<div class="kc" style="border-top:0;background:#F0F9FF"><small>${k[0]}</small><b>${k[1]}</b></div>`).join('');}
+$$('#tabs button').forEach(b=>b.onclick=()=>{$$('#tabs button').forEach(x=>x.classList.toggle('on',x===b));const t=b.dataset.t;['op','ee','pr'].forEach(v=>$('#v'+v).classList.toggle('hidden',v!==t));$('#vph').classList.toggle('hidden',['op','ee','pr'].includes(t));if(t==='ee')ee();if(t==='pr')pr();});
+op();coms();
+window.runAuto=async()=>{await sleep(1200);await tap('#guardar');await sleep(1200);await tap('#sol tr');await sleep(600);await tap('#act');await sleep(1400);
+ await tap('#tabs [data-t="ee"]');await sleep(1400);await pick('#aseg','EPS Beta');await sleep(1200);await tap('#esub [data-s="com"]');await sleep(600);await tap('#clas');await sleep(2600);await tap('#cf [data-s="n"]');await sleep(1500);await tap('#tabs [data-t="pr"]');await sleep(1800);};
+if(AUTO&&QS.get('hold')!=='1')runAuto();
+</script></body></html>

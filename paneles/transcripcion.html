@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dictado estructurado de ecocardiograma · réplica con datos sintéticos</title><link rel="stylesheet" href="comun.css">
+<style>
+body{font-family:Arial,Helvetica,sans-serif;background:#F1F3F6;color:#1F2937;font-size:13px}
+.top{background:#002B5C;color:#fff;padding:10px 18px;display:flex;gap:16px;font-size:12.5px}.top a{color:#fff;cursor:pointer}
+.lay{display:grid;grid-template-columns:200px 1fr;min-height:calc(100vh - 38px)}
+.side{background:#fff;padding:14px 10px;border-right:1px solid #E5E7EB}.side h4{margin:0;font-size:12px;display:flex;justify-content:space-between;align-items:center}
+.side button{background:#E5E7EB;border:0;border-radius:5px;padding:6px 10px;font-weight:700;font-size:11.5px}.side .m{font-size:10.5px;color:#6B7280;margin:6px 0}
+.au{background:#EFF6FF;border-radius:6px;padding:8px;font-size:11px;color:#475569;margin-top:6px}.au b{display:block;color:#1F2937}
+.main{padding:18px 26px 50px;max-width:1000px}
+h1{font-size:21px;margin:0}.sub{color:#374151;margin:4px 0 16px}
+.card{background:#fff;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.08);padding:16px 18px;margin-bottom:16px}
+.card h3{margin:0 0 4px;font-size:14px;color:#0F2B4F}.mut{color:#6B7280;font-size:11.5px}
+.r3{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:16px;align-items:start}
+label{font-size:11.5px;font-weight:700;display:block;margin-bottom:4px;color:#0F2B4F}select{width:100%;padding:6px;border:1px solid #D1D5DB;border-radius:4px;font-size:12px}
+.g2{display:grid;grid-template-columns:1fr 1.4fr;gap:12px;margin-top:14px}.in{border:1px solid #E5E7EB;border-radius:6px;padding:10px 12px}
+.in ol{margin:6px 0 0;padding-left:18px;font-size:12px;line-height:1.5}
+.chips span{display:inline-block;border:1px solid #D1D5DB;background:#F9FAFB;border-radius:999px;padding:3px 8px;font-size:10.5px;margin:2px;transition:.3s}
+.chips span.ok{background:#DCFCE7;border-color:#22C55E;color:#166534;font-weight:700}
+.bn{border:0;border-radius:4px;padding:8px 14px;font-weight:700;cursor:pointer;font-size:12px}
+.nv{background:#002B5C;color:#fff}.rd{background:#F08080;color:#fff}.gy{background:#64748B;color:#fff}.wh{background:#fff;border:1px solid #CBD5E1;color:#0F2B4F}
+.bn[disabled]{opacity:.45;pointer-events:none}
+.rec{border:1px solid #D1D5DB;border-radius:4px;margin-top:10px}.rec .tx{min-height:90px;padding:10px;border-bottom:1px solid #E5E7EB;font-size:13px;line-height:1.5;white-space:pre-wrap}
+.mic{padding:8px 10px;font-size:11.5px;color:#6B7280;font-weight:700;display:flex;align-items:center;gap:8px}.mic i{width:8px;height:8px;border-radius:50%;background:#9CA3AF}
+.mic:not(.on) .wv{display:none}.mic.on{color:#DC2626}.mic.on i{background:#DC2626;animation:pl 1s infinite}@keyframes pl{50%{opacity:.2}}
+.wv{display:inline-flex;gap:2px;align-items:center;height:16px}.wv b{width:3px;background:#DC2626;border-radius:2px;height:3px;transition:height .12s}
+.rt{display:flex;justify-content:flex-end;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.res{display:none}.res.on{display:block}
+textarea{width:100%;min-height:120px;border:1px solid #D1D5DB;border-radius:4px;padding:10px;font:inherit;font-size:12.5px}
+.rep{width:100%;border-collapse:collapse;margin-top:10px;font-size:12px}.rep td{border-bottom:1px solid #F3F4F6;padding:6px 8px}.rep td:first-child{font-weight:700;color:#0F2B4F;width:42%}
+.rep .pend{color:#B45309;font-style:italic}.rep tr.new td{background:#FEF9C3}
+.toast{position:fixed;left:50%;top:16px;transform:translateX(-50%);background:#0F2B4F;color:#fff;border-radius:6px;padding:8px 14px;font-size:12px;opacity:0;transition:.3s;z-index:600}.toast.on{opacity:1}
+@media (max-width:820px){.lay{grid-template-columns:1fr}.side{border-right:0;border-bottom:1px solid #E5E7EB}.r3,.g2{grid-template-columns:1fr}.main{padding:14px}}
+</style></head><body>
+<div class="top"><a>Volver al Panel</a><a>Mis audios (página completa)</a></div>
+<div class="lay"><div class="side"><h4>Mis audios <button id="act">Actualizar</button></h4><div class="m">Solo los asociados a tu usuario. Grabados y subidos.</div><div id="aud"><div class="au">Aún no hay audios en esta demostración.</div></div></div>
+<div class="main"><h1>Dictado estructurado de ecocardiograma</h1><div class="sub">Graba o sube el audio. El sistema transcribe, corrige el contexto médico y separa los campos de la plantilla.</div>
+ <div class="card"><div class="r3"><div><h3>Ecocardiograma transtorácico</h3><div class="mut">Basada en: plantilla institucional de ecocardiograma transtorácico</div></div><div><label>Plantilla</label><select><option>Ecocardiograma transtorácico</option></select></div><div><label>Motor IA</label><select><option>Motor A</option><option>Motor B</option></select><div class="mut" style="margin-top:4px">Modelo de ejemplo</div></div></div>
+  <div class="g2"><div class="in"><b style="font-size:12px;color:#0F2B4F">Orden sugerido del dictado</b><ol><li>Datos del estudio: talla, peso, ventana acústica y ritmo.</li><li>Medidas generales: cavidades, pared, volúmenes, fracción de eyección, Doppler y TAPSE.</li><li>Descripción y hallazgos: vena cava inferior, aurículas, válvulas, ventrículos, septos, aorta y pericardio.</li><li>Conclusiones: resumir función ventricular, válvulas, aurículas, grandes vasos, cortocircuitos y pericardio.</li></ol></div>
+   <div class="in"><b style="font-size:12px;color:#0F2B4F">Campos que se van a parametrizar</b><div class="chips" id="chips"></div></div></div></div>
+ <div class="card"><h3>Grabar audio</h3><div class="mut">Dicta en el orden de la guía. Si falta un dato, quedará marcado como pendiente.</div>
+  <div style="margin-top:10px;display:flex;gap:8px"><button class="bn nv" id="ini">Iniciar grabación</button><button class="bn rd" id="det" disabled>Detener</button></div>
+  <div class="rec"><div class="tx" id="tx"></div><div class="mic" id="mic"><i></i><span id="mt">Micrófono en espera</span><span class="wv" id="wv"></span></div></div>
+  <div class="rt"><label style="font-weight:400;display:flex;gap:6px;align-items:center;margin:0"><input type="checkbox"> Modo rápido (menos preciso, para cuando priorices velocidad)</label><button class="bn gy" id="trs" disabled>Transcribir grabación</button></div></div>
+ <div class="card res" id="res"><h3>Transcripción</h3><textarea id="ta" readonly></textarea>
+  <div class="rt" style="justify-content:flex-start"><button class="bn wh" id="edit">Editar transcripción</button><button class="bn wh" id="save">Guardar cambios</button><button class="bn nv" id="repro">Reprocesar con plantilla</button><button class="bn wh" id="aco">Acomodar texto</button><button class="bn wh" id="cop">Copiar texto</button></div>
+  <h3 style="margin-top:14px">Informe estructurado</h3><table class="rep" id="rep"></table></div>
+ <div class="card"><h3>O subir archivo</h3><b style="font-size:12px">Seleccionar archivo de audio</b><div class="mut">MP3, WAV, M4A, WebM, OGG, FLAC, MP4 o MPGA. Audios largos se procesan en segundo plano.</div><input type="file" id="file" style="margin:10px 0;width:100%;border:1px solid #E5E7EB;padding:6px;border-radius:4px"><div class="rt"><button class="bn gy" id="trf">Transcribir archivo</button></div></div>
+</div></div>
+<div class="toast" id="toast"></div>
+<script src="comun.js"></script>
+<script>
+const F=[['Talla (cm)','168'],['Peso (kg)','72'],['Ventana acústica','adecuada'],['Ritmo','sinusal'],['Aorta (mm)','31'],['Aurícula izquierda antero-posterior (mm)','36'],['Septum (mm)','10'],['Diámetro diastólico VI (mm)','47'],['Diámetro sistólico VI (mm)','30'],['Pared posterior (mm)','9'],['Espesor relativo de la pared','0,38'],['Índice de masa (g/m2)','—'],['Volumen telesistólico (mL)','—'],['Volumen telediastólico (mL)','—'],['Acortamiento fracción (%)','36'],['FE VI (%)','62'],['Aurícula derecha volumen A-L (mL/m2)','—'],['Aurícula izquierda volumen A-L (mL/m2)','28'],['Onda E (cm/seg)','78'],['Onda A (cm/seg)','64'],['Relación E/A','1,2'],['Tiempo de desaceleración (ms)','190'],['Ventrículo derecho (mm)','29']];
+$('#chips').innerHTML=F.map((f,i)=>`<span id="c${i}">${f[0]}</span>`).join('');
+const DICT='Paciente de ejemplo. Talla ciento sesenta y ocho, peso setenta y dos. Ventana acústica adecuada, ritmo sinusal. Aorta treinta y uno. Aurícula izquierda treinta y seis. Septum diez, diámetro diastólico cuarenta y siete, sistólico treinta, pared posterior nueve. Fracción de eyección sesenta y dos por ciento. Onda E setenta y ocho, onda A sesenta y cuatro. Desaceleración ciento noventa. Ventrículo derecho veintinueve. Conclusión: función sistólica del ventrículo izquierdo conservada, sin valvulopatías significativas, pericardio sin derrame.';
+$('#wv').innerHTML='<b></b>'.repeat(14);let run=0,secs=0,timer;
+function toast(t){$('#toast').textContent=t;$('#toast').classList.add('on');setTimeout(()=>$('#toast').classList.remove('on'),1600);}
+$('#ini').onclick=async()=>{const my=++run;$('#ini').disabled=true;$('#det').disabled=false;$('#mic').classList.add('on');secs=0;$('#tx').textContent='';
+ timer=setInterval(()=>{secs++;$('#mt').textContent='Grabando… 00:'+String(secs).padStart(2,'0');$$('#wv b').forEach(b=>b.style.height=(3+Math.random()*13)+'px');},150);
+ const w=DICT.split(' ');for(let i=0;i<w.length;i++){if(my!==run)return;$('#tx').textContent+=(i?' ':'')+w[i];await sleep(55);}stop();};
+function stop(){clearInterval(timer);$('#mic').classList.remove('on');$('#mt').textContent='Grabación lista ('+Math.max(1,Math.round(secs*.15*10))+' s)';$$('#wv b').forEach(b=>b.style.height='3px');$('#ini').disabled=false;$('#det').disabled=true;$('#trs').disabled=false;}
+$('#det').onclick=()=>{run++;stop();};
+async function transcribir(){ $('#trs').disabled=true;toast('Transcribiendo y separando campos…');$('#res').classList.add('on');$('#ta').value=DICT;
+ $('#rep').innerHTML=F.map((f,i)=>`<tr id="r${i}"><td>${f[0]}</td><td class="pend">pendiente</td></tr>`).join('')+'<tr id="rc"><td>Conclusión</td><td class="pend">pendiente</td></tr>';
+ $('#res').scrollIntoView({behavior:'smooth',block:'start'});
+ for(let i=0;i<F.length;i++){await sleep(110);const tr=$('#r'+i),v=F[i][1];tr.classList.add('new');tr.children[1].className=v==='—'?'pend':'';tr.children[1].textContent=v==='—'?'pendiente (no dictado)':v;if(v!=='—')$('#c'+i).classList.add('ok');setTimeout(()=>tr.classList.remove('new'),600);}
+ const c=$('#rc');c.children[1].className='';c.children[1].textContent='Función sistólica del ventrículo izquierdo conservada. Sin valvulopatías significativas. Pericardio sin derrame.';
+ $('#aud').innerHTML=`<div class="au"><b>Ecocardiograma · ejemplo</b>hace un momento · procesado</div>`+$('#aud').innerHTML.replace(/<div class="au">Aún no hay.*?<\/div>/,'');}
+$('#trs').onclick=transcribir;$('#trf').onclick=()=>{$('#tx').textContent=DICT;transcribir();};
+$('#edit').onclick=()=>{$('#ta').readOnly=false;$('#ta').focus();toast('Puede corregir la transcripción');};
+$('#save').onclick=()=>{$('#ta').readOnly=true;toast('Cambios guardados');};$('#repro').onclick=transcribir;
+$('#aco').onclick=()=>{$('#ta').value=$('#ta').value.replace(/\. /g,'.\n');toast('Texto acomodado');};
+$('#cop').onclick=()=>{try{navigator.clipboard.writeText($('#ta').value);}catch(e){}toast('Texto copiado');};
+$('#act').onclick=()=>toast('Lista actualizada');
+window.runAuto=async()=>{await sleep(1000);await tap('#ini');await sleep(4800);await tap('#trs');await sleep(3600);await scrollToEl('#rep',120);await sleep(1600);await scrollToEl('#res',10);await tap('#aco');await sleep(1600);await scrollToY(0);await sleep(1200);};
+if(AUTO&&QS.get('hold')!=='1')runAuto();
+</script></body></html>

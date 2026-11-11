@@ -7,14 +7,14 @@ service cloud.firestore {
       match /votos/{usuarioId} {
         // MODO DEMO SPARK: lectura de votos seudónimos para conteo en navegador.
         // NO utilizar con información clínica o datos personales.
-        allow list: if request.auth != null && votacionId == 'seminario2026';
+        allow list: if request.auth != null && votacionId in ['seminario2026','digitaltwins2026'];
         allow get: if false;
         allow create: if request.auth != null
-          && votacionId == 'seminario2026'
+          && votacionId in ['seminario2026','digitaltwins2026']
           && request.auth.uid == usuarioId
           && request.resource.data.keys().hasOnly(['opcion','creadoEn'])
           && request.resource.data.keys().hasAll(['opcion','creadoEn'])
-          && request.resource.data.opcion in ['historia_clinica','experiencia_paciente','operacion_hospitalaria']
+          && ((votacionId == 'seminario2026' && request.resource.data.opcion in ['historia_clinica','experiencia_paciente','operacion_hospitalaria']) || (votacionId == 'digitaltwins2026' && request.resource.data.opcion in ['robots','modelo_virtual','historia_digital','interoperabilidad']))
           && request.resource.data.creadoEn == request.time
           && get(/databases/$(database)/documents/votaciones/$(votacionId)).data.abierta == true;
         allow update, delete: if false;

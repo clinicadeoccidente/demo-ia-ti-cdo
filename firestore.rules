@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /votaciones/{votacionId} {
+      allow get: if request.auth != null;
+      allow list, create, update, delete: if false;
+      match /votos/{usuarioId} {
+        // MODO DEMO SPARK: lectura de votos seudónimos para conteo en navegador.
+        // NO utilizar con información clínica o datos personales.
+        allow list: if request.auth != null && votacionId == 'seminario2026';
+        allow get: if false;
+        allow create: if request.auth != null
+          && votacionId == 'seminario2026'
+          && request.auth.uid == usuarioId
+          && request.resource.data.keys().hasOnly(['opcion','creadoEn'])
+          && request.resource.data.keys().hasAll(['opcion','creadoEn'])
+          && request.resource.data.opcion in ['historia_clinica','experiencia_paciente','operacion_hospitalaria']
+          && request.resource.data.creadoEn == request.time
+          && get(/databases/$(database)/documents/votaciones/$(votacionId)).data.abierta == true;
+        allow update, delete: if false;
+      }
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

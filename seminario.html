@@ -118,6 +118,33 @@
 @keyframes v10Scan{to{background-position:0 100px}}@keyframes v10Spin{to{transform:rotate(360deg)}}@keyframes v10Float{to{background-position:52% 47%}}
 @media(max-width:900px){.v10-reveal-copy{width:65%}.v10-phase h2{font-size:clamp(40px,6vw,80px)!important}.v10-network{left:3%;right:3%;gap:2%}.v10-node p{font-size:12px!important}.v10-ring{width:95px;height:95px}.v10-vision-title h2{font-size:clamp(28px,3.5vw,45px)!important}}
 @media(prefers-reduced-motion:reduce){.v10-scene,.v10-scan,.v10-ring:before,.v10-ring:after{animation:none!important}.v10-phase,.v10-node{transition:none!important}}
+
+/* V11: ajuste EXCLUSIVO de la revelación, posición real 10/14.
+   Mismo encuadre de la pregunta 8/14; sin zoom agresivo ni recorte de la figura. */
+.v10-reveal .v10-scene{
+ inset:0 0 0 28%;
+ background-position:center center;
+ background-size:cover;
+ filter:saturate(1.22) contrast(1.08);
+ transform:scale(1.015);
+ animation:v11RevealDrift 18s ease-in-out infinite alternate;
+ transition:transform 1.5s ease,filter 1.5s ease;
+ transform-origin:70% 48%;
+}
+.v10-reveal[data-stage="1"] .v10-scene{transform:scale(1.035) translateX(-.4%);filter:saturate(1.28) contrast(1.09)}
+.v10-reveal[data-stage="2"] .v10-scene{transform:scale(1.055) translateX(-.8%);filter:saturate(1.33) contrast(1.1)}
+.v10-reveal .v10-vignette{
+ background:linear-gradient(90deg,#020b16 0%,#020b16f5 19%,#020b16d9 37%,#020b168a 52%,#020b161f 78%),linear-gradient(0deg,#020b16c9 0%,transparent 25%,#020b1633 100%);
+}
+.v10-reveal .v10-reveal-copy{width:min(53%,860px);top:22%}
+.v10-reveal .v10-phase h2{font-size:clamp(50px,5.6vw,100px)!important;line-height:.99!important}
+.v10-reveal .v10-phase p{max-width:640px!important}
+.v10-reveal .v10-stage-hint-final{display:none}
+.v10-reveal[data-stage="2"] .v10-stage-hint-next{display:none}
+.v10-reveal[data-stage="2"] .v10-stage-hint-final{display:inline}
+@keyframes v11RevealDrift{from{background-position:49% center}to{background-position:51% center}}
+@media(max-width:900px){.v10-reveal .v10-scene{left:16%}.v10-reveal .v10-reveal-copy{width:69%}}
+@media(prefers-reduced-motion:reduce){.v10-reveal .v10-scene{animation:none}}
 </style></head><body><main class="deck" aria-label="Presentación AI Experience 2026">
 <section class="slide active"><div class="eyebrow">Clínica de Occidente · 5.º Seminario de Tecnologías en Salud</div><h1>AI <span class="accent">EXPERIENCE</span><br>2026</h1><p>Innovación que libera tiempo para cuidar vidas.</p><span class="pill">Modo presentación · Sin desplazamiento vertical</span><div class="footer">Pulsa → para comenzar</div></section>
 <section class="slide"><div class="eyebrow">01 · El mensaje que nos mueve</div><h2>No se trata de <span class="accent">reemplazar personas.</span></h2><p>No se trata de reemplazar médicos, enfermeros o colaboradores. Se trata de liberar su tiempo, aprovechar mejor la información y tomar mejores decisiones para cuidar a nuestros pacientes.</p><span class="pill">Tecnología al servicio del talento humano</span></section>
@@ -137,7 +164,7 @@
   <div class="v10-phase v10-phase-1"><h2>UN UNIVERSO<br>DE <em>DATOS.</em></h2><p>Información clínica que puede alimentar modelos de su estado y evolución.</p></div>
   <div class="v10-phase v10-phase-2"><h2>INFINITAS<br><em>POSIBILIDADES.</em></h2><p>Un <strong>Digital Twin</strong> busca representar aspectos de un paciente para estudiar escenarios, siempre con validación clínica.</p></div>
  </div>
- <div class="v10-bottom"><span class="v10-stage-counter">01 / 03</span><div class="v10-stage-bars"><i></i><i></i><i></i></div><span>→ AVANZAR REVELACIÓN</span></div>
+ <div class="v10-bottom"><span class="v10-stage-counter">01 / 03</span><div class="v10-stage-bars"><i></i><i></i><i></i></div><span class="v10-stage-hint-next">→ AVANZAR REVELACIÓN</span><span class="v10-stage-hint-final">REVELACIÓN COMPLETA · → SIGUIENTE PANTALLA</span></div>
  <div class="v10-disclaimer">VISIÓN CONCEPTUAL · NO ES UNA HERRAMIENTA CLÍNICA IMPLEMENTADA</div>
 </section>
 <section class="slide v10-vision" data-cinematic="vision" data-stage="0" aria-label="Visión Digital Twins en tres momentos">

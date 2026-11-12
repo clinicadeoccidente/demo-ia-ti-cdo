@@ -246,6 +246,39 @@
 /* V18: significado de ORBIT, visible en el segundo momento de la pantalla 3/15 */
 .eco-moment .orbit-acronym{display:block;font-size:clamp(15px,1.12vw,21px);font-weight:600;line-height:1.3;color:#ffba69;margin:6px 0 12px;max-width:540px}
 .eco-moment p b{color:#5cecff;letter-spacing:.08em}
+
+/* V19: pantalla 5/15. Foto proporcionada por el usuario, con su logotipo original intacto. */
+.slide.care-cinema{padding:0;overflow:hidden;display:block;background:#061426;isolation:isolate}
+.slide.care-cinema::after{display:none}
+.care-image{position:absolute;inset:0;background:url('atencion-humana-clinica.webp') center center/cover no-repeat;transition:filter 1.1s ease,transform 1.8s ease,opacity 1s ease;transform:scale(1.035)}
+.care-cinema[data-stage="0"] .care-image{filter:grayscale(1) brightness(.25) blur(7px);transform:scale(1.08)}
+.care-cinema[data-stage="1"] .care-image{filter:brightness(.95) saturate(1.07);transform:scale(1.01)}
+.care-cinema[data-stage="2"] .care-image{filter:brightness(.77) saturate(1.18);transform:scale(1.045)}
+.care-shade{position:absolute;inset:0;background:linear-gradient(90deg,#031322f7 0%,#031322ef 27%,#031322b8 46%,#03132210 76%),linear-gradient(0deg,#031322bb,transparent 28%);transition:background .9s}
+.care-cinema[data-stage="1"] .care-shade{background:linear-gradient(90deg,#031322f7 0%,#031322e8 28%,#0313228c 51%,transparent 77%),linear-gradient(0deg,#031322b8,transparent 22%)}
+.care-copy{position:absolute;inset:0;z-index:3;padding:clamp(28px,4.5vw,82px);padding-bottom:clamp(95px,12vh,125px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;width:min(68%,1140px)}
+.care-eyebrow{font-weight:800;letter-spacing:.21em;color:#ff9b27;font-size:clamp(12px,1.05vw,19px);margin-bottom:clamp(24px,4vh,50px)}
+.care-phase{display:none;animation:careReveal .7s ease both}
+.care-cinema[data-stage="0"] .care-phase-0,.care-cinema[data-stage="1"] .care-phase-1,.care-cinema[data-stage="2"] .care-phase-2{display:block}
+.care-label{font-size:clamp(12px,1vw,17px);letter-spacing:.13em;color:#79f0ff;font-weight:800;margin-bottom:18px}
+.slide.care-cinema .care-phase h2{font-size:clamp(39px,4.5vw,81px);font-weight:900;line-height:1.04;letter-spacing:-.055em;color:#fff;max-width:1000px;text-shadow:0 5px 28px #0019}
+.care-phase h2 em{font-style:normal;color:#ff9b27}
+.slide.care-cinema .care-phase p{font-size:clamp(18px,1.52vw,27px);line-height:1.42;max-width:670px;margin-top:28px;color:#e0ecf6;text-shadow:0 2px 15px #001a}
+.care-foot{display:flex;flex-wrap:wrap;gap:13px 23px;align-items:center;margin-top:clamp(35px,6vh,72px);font-size:clamp(10px,.85vw,14px);font-weight:700;letter-spacing:.08em;color:#b8d9e9}
+.care-counter{color:#66eaff;font-size:clamp(17px,1.35vw,24px)}
+.care-cinema[data-stage="2"] .care-next{font-size:0}.care-cinema[data-stage="2"] .care-next:after{content:'→ SIGUIENTE DIAPOSITIVA';font-size:clamp(10px,.85vw,14px)}
+.care-before-visual{position:absolute;right:11%;top:27%;width:24vw;max-width:400px;z-index:2;opacity:0;transition:opacity .6s;filter:drop-shadow(0 0 35px #00d9ff35)}
+.care-cinema[data-stage="0"] .care-before-visual{opacity:1}
+.care-monitor{height:13vw;max-height:210px;min-height:110px;border:4px solid #4de7ff;border-radius:16px;background:#0a2946ed;box-shadow:0 0 40px #00e5ff3b;display:flex;flex-direction:column;gap:11px;padding:20px}
+.care-monitor-top{height:12px;width:42%;background:#58dfff;border-radius:10px;opacity:.8}
+.care-monitor i{display:block;height:5px;background:#4ac0ed88;border-radius:8px;width:80%}.care-monitor i:nth-child(odd){width:65%}
+.care-keyboard{height:18px;width:70%;margin:20px auto 0;border:2px solid #4de7ff88;border-radius:8px;transform:perspective(120px) rotateX(35deg)}
+.care-voice{position:absolute;z-index:4;right:8%;bottom:16%;height:74px;display:flex;align-items:center;gap:6px;opacity:0;transition:opacity .5s;filter:drop-shadow(0 0 12px #15edff)}
+.care-cinema[data-stage="2"] .care-voice{opacity:1}
+.care-voice span{display:block;width:5px;height:20%;border-radius:5px;background:#5ef4ff;animation:careVoice 1.1s ease-in-out infinite alternate}.care-voice span:nth-child(3n){animation-delay:-.45s}.care-voice span:nth-child(2n){animation-delay:-.7s}.care-voice span:nth-child(4n){animation-delay:-.25s}
+@keyframes careVoice{to{height:95%}}@keyframes careReveal{from{opacity:0;transform:translateY(22px);filter:blur(7px)}to{opacity:1;transform:none;filter:none}}
+@media(max-width:850px){.care-copy{width:94%;padding:28px 28px 95px}.care-shade,.care-cinema[data-stage="1"] .care-shade{background:linear-gradient(90deg,#031322f5,#031322a8 75%,#03132255)}.care-before-visual{right:4%;top:8%;opacity:.4!important}.slide.care-cinema .care-phase h2{font-size:clamp(35px,6.4vw,65px)}.care-voice{right:4%;bottom:12%}}
+@media(prefers-reduced-motion:reduce){.care-phase,.care-image,.care-voice span{animation:none!important;transition:none!important}}
 </style></head><body><main class="deck" aria-label="Presentación AI Experience 2026">
 <section class="slide active cinematic-cover"><div class="eyebrow">Clínica de Occidente · 5.º Seminario de Tecnologías en Salud</div><h1>AI <span class="accent">EXPERIENCE</span><br>2026</h1><p>Innovación que libera tiempo para cuidar vidas.</p><div class="footer">Pulsa → para comenzar</div></section>
 <section class="slide human-cinema" data-cinematic="human" data-stage="0" aria-label="El mensaje que nos mueve">
@@ -279,7 +312,16 @@
   </div>
   <div class="ai-tools-bottom"><div><strong class="v10-stage-counter">01 / 03</strong><span class="ai-tools-hint"> · Pulsa → para revelar</span></div><span>HERRAMIENTAS DE APOYO A LA INNOVACIÓN · DATOS CLÍNICOS SOLO CON CONTROLES Y AUTORIZACIÓN</span></div>
 </section>
-<section class="slide"><div class="eyebrow">03 · Tiempo para cuidar</div><h2>Menos digitación.<br><span class="accent">Más atención.</span></h2><div class="cards"><div class="card"><strong>Hablemos de Salud</strong><span>Asistencia por voz en la documentación clínica.</span></div><div class="card"><strong>Ecocardiogramas</strong><span>Transcripción y estructuración de informes.</span></div><div class="card"><strong>Validación humana</strong><span>El profesional revisa y aprueba el resultado.</span></div></div></section>
+<section class="slide care-cinema" data-cinematic="care" data-stage="0" aria-label="Tiempo para cuidar: atención humana en tres momentos">
+<div class="care-image" aria-hidden="true"></div><div class="care-shade" aria-hidden="true"></div>
+<div class="care-before-visual" aria-hidden="true"><div class="care-monitor"><div class="care-monitor-top"></div><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="care-keyboard"></div></div>
+<div class="care-copy"><div class="care-eyebrow">03 · TIEMPO PARA CUIDAR</div>
+<div class="care-phase care-phase-0"><div class="care-label">EL RETO</div><h2>MENOS TIEMPO<br><em>FRENTE AL TECLADO.</em></h2><p>La documentación clínica puede restar atención a la conversación con el paciente.</p></div>
+<div class="care-phase care-phase-1"><div class="care-label">NUESTRA VISIÓN · ATENCIÓN 100 % HUMANA</div><h2>MÁS MIRADAS.<br><em>MÁS CONFIANZA.</em></h2><p>Queremos que el profesional mantenga el contacto visual y dedique más tiempo a escuchar.</p></div>
+<div class="care-phase care-phase-2"><div class="care-label">HABLEMOS DE SALUD · ASISTENCIA POR VOZ</div><h2>LA TECNOLOGÍA APOYA.<br><em>EL MÉDICO CUIDA.</em></h2><p>La voz puede ayudar a preparar la documentación. El profesional siempre revisa y aprueba.</p></div>
+<div class="care-foot"><span class="care-concept">VISIÓN CONCEPTUAL · IMAGEN ILUSTRATIVA</span><span class="care-counter v10-stage-counter">01 / 03</span><span class="care-next">→ REVELAR SIGUIENTE MOMENTO</span></div></div>
+<div class="care-voice" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+</section>
 <section class="slide"><div class="eyebrow">04 · Inteligencia aplicada</div><h2>Una clínica que <span class="accent">aprende</span></h2><div class="cards"><div class="card"><strong>Humanización con IA</strong><span>Comprender comentarios y experiencias.</span></div><div class="card"><strong>Auditoría clínica</strong><span>Apoyar la identificación de hallazgos.</span></div><div class="card"><strong>Analítica</strong><span>Convertir información en acciones.</span></div></div></section>
 <section class="slide"><div class="eyebrow">05 · Operación inteligente</div><h2>De ver los procesos a <span class="accent">gestionarlos mejor</span></h2><div class="cards"><div class="card"><strong>Torre de Control</strong><span>Seguimiento y visibilidad operativa.</span></div><div class="card"><strong>Camillería</strong><span>Coordinación digital de traslados.</span></div><div class="card"><strong>Gestión de Proyectos</strong><span>Seguimiento del trabajo de innovación.</span></div></div></section>
 <section class="slide"><div class="eyebrow">06 · AI Experience Lab</div><h2>Ahora, la IA <span class="accent">en acción</span></h2><p>Selecciona una demostración. Se abrirá en otra pestaña para que puedas regresar a la conferencia sin perder la diapositiva.</p><div class="demo-list"><a class="action" href="paneles/humanizacion.html" target="_blank" rel="noopener">♥ Humanización</a><a class="action" href="paneles/auditoria.html" target="_blank" rel="noopener">✓ Auditoría clínica</a><a class="action" href="paneles/transcripcion.html" target="_blank" rel="noopener">◉ Ecocardiogramas</a><a class="action secondary" href="paneles/urgencias.html" target="_blank" rel="noopener">Urgencias</a><a class="action secondary" href="paneles/ocupacion.html" target="_blank" rel="noopener">Ocupación</a><a class="action secondary" href="paneles/proyectos.html" target="_blank" rel="noopener">Proyectos</a></div><p class="speaker">Usar datos sintéticos y no mostrar información real de pacientes.</p></section>

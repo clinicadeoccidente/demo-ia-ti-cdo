@@ -422,6 +422,21 @@
 .ops-cinema .ops-scene{position:absolute!important;inset:0!important;display:none!important;opacity:1!important;visibility:visible!important}
 .ops-cinema[data-stage="0"] .ops-scene-0,.ops-cinema[data-stage="1"] .ops-scene-1,.ops-cinema[data-stage="2"] .ops-scene-2{display:block!important}
 .ops-cinema .ops-copy,.ops-cinema .ops-label,.ops-cinema .ops-progress{z-index:3}
+
+/* V29: corrección de raíz: slides 9 y 10 deben estar ancladas al viewport, nunca en flujo normal. */
+.deck > .slide.ops-cinema {position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:0!important;overflow:hidden!important;}
+.deck > .slide.ops-cinema:not(.active) {display:none!important;visibility:hidden!important;opacity:0!important;}
+.deck > .slide.ops-cinema.active {display:block!important;visibility:visible!important;opacity:1!important;transform:none!important;z-index:2!important;}
+.deck > .slide.ops-cinema.active .ops-scene {position:absolute!important;inset:0!important;width:100%!important;height:100%!important;}
+.deck > .slide.ops-cinema.active[data-stage="0"] .ops-scene-0,
+.deck > .slide.ops-cinema.active[data-stage="1"] .ops-scene-1,
+.deck > .slide.ops-cinema.active[data-stage="2"] .ops-scene-2 {display:block!important;opacity:1!important;visibility:visible!important;}
+.deck > .slide.ops-cinema.active .ops-photo {position:absolute!important;inset:0!important;}
+.deck > .slide.ops-cinema.active .ops-copy,
+.deck > .slide.ops-cinema.active .porter-center,
+.deck > .slide.ops-cinema.active .porter-intro {z-index:4!important;}
+/* El laboratorio vuelve a ocupar toda la pantalla al pasar desde Camillería. */
+.deck > .slide:not(.ops-cinema).active {z-index:1;}
 </style></head><body><main class="deck" aria-label="Presentación AI Experience 2026">
 <section class="slide active cinematic-cover"><div class="eyebrow">Clínica de Occidente · 5.º Seminario de Tecnologías en Salud</div><h1>AI <span class="accent">EXPERIENCE</span><br>2026</h1><p>Innovación que libera tiempo para cuidar vidas.</p><div class="footer">Pulsa → para comenzar</div></section>
 <section class="slide human-cinema" data-cinematic="human" data-stage="0" aria-label="El mensaje que nos mueve">

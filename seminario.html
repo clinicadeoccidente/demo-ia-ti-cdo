@@ -279,6 +279,12 @@
 @keyframes careVoice{to{height:95%}}@keyframes careReveal{from{opacity:0;transform:translateY(22px);filter:blur(7px)}to{opacity:1;transform:none;filter:none}}
 @media(max-width:850px){.care-copy{width:94%;padding:28px 28px 95px}.care-shade,.care-cinema[data-stage="1"] .care-shade{background:linear-gradient(90deg,#031322f5,#031322a8 75%,#03132255)}.care-before-visual{right:4%;top:8%;opacity:.4!important}.slide.care-cinema .care-phase h2{font-size:clamp(35px,6.4vw,65px)}.care-voice{right:4%;bottom:12%}}
 @media(prefers-reduced-motion:reduce){.care-phase,.care-image,.care-voice span{animation:none!important;transition:none!important}}
+
+/* V20: únicamente escena 01/03 de la pantalla real 5/15 */
+.care-cinema[data-stage="0"] .care-image{background-image:url('consulta-antes-cinematografica.webp');background-size:cover;background-position:76% center;filter:brightness(.82) saturate(.85);transform:scale(1.015)}
+.care-cinema[data-stage="0"] .care-shade{background:linear-gradient(90deg,#031322 0%,#031322f5 27%,#031322dc 42%,#0313226b 61%,#03132200 84%),linear-gradient(0deg,#031322bd,transparent 27%)}
+.care-cinema[data-stage="0"] .care-before-visual{display:none}
+@media(max-width:800px){.care-cinema[data-stage="0"] .care-image{background-position:68% center;filter:brightness(.57)}.care-cinema[data-stage="0"] .care-shade{background:linear-gradient(90deg,#031322fa,#031322b8 75%,#03132255)}}
 </style></head><body><main class="deck" aria-label="Presentación AI Experience 2026">
 <section class="slide active cinematic-cover"><div class="eyebrow">Clínica de Occidente · 5.º Seminario de Tecnologías en Salud</div><h1>AI <span class="accent">EXPERIENCE</span><br>2026</h1><p>Innovación que libera tiempo para cuidar vidas.</p><div class="footer">Pulsa → para comenzar</div></section>
 <section class="slide human-cinema" data-cinematic="human" data-stage="0" aria-label="El mensaje que nos mueve">

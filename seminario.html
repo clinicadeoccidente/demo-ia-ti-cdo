@@ -629,8 +629,60 @@ section.slide.v40-video-cinema.active{visibility:visible!important;opacity:1!imp
 .poll-ai-status{font-size:clamp(11px,.9vw,15px);color:#8ce9ff;margin:4px 0}
 .poll-ai-footer{position:absolute;bottom:clamp(18px,2.3vw,36px);left:clamp(30px,4.2vw,70px);right:clamp(30px,4.2vw,70px);color:#8aaac4}
 @media(max-width:700px){.poll-ai-layout{grid-template-columns:1fr;max-height:none}.poll-ai-qrbox{display:none}.poll-ai-cinema{overflow:auto}}
+</style><style>
+/* Nueva diapositiva 2 — Conexión al auditorio */
+.wifi-cinema{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 78% 42%,#114777 0%,#071d36 38%,#030b19 80%);color:#fff;padding:clamp(30px,4.4vw,72px)!important}
+.wifi-cinema:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#63dfff07 1px,transparent 1px),linear-gradient(#63dfff07 1px,transparent 1px);background-size:62px 62px;mask-image:linear-gradient(to top,#000a,transparent 90%)}
+.wifi-topline,.wifi-bottom{position:relative;display:flex;justify-content:space-between;gap:20px;color:#7ddffc;font-size:clamp(10px,.85vw,15px);letter-spacing:.19em;font-weight:800}
+.wifi-body{position:relative;display:grid;grid-template-columns:1.2fr .75fr;align-items:center;gap:clamp(20px,5vw,80px);height:calc(100% - 95px)}
+.wifi-eyebrow{color:#8af3ff;font-weight:800;letter-spacing:.22em;font-size:clamp(11px,1vw,17px);display:flex;align-items:center;gap:12px}
+.wifi-pulse{width:9px;height:9px;background:#56e7fc;border-radius:50%;box-shadow:0 0 0 8px #56e7fc1b,0 0 22px #56e7fc;animation:wifiPulse 2s infinite}
+.wifi-cinema h2{font-size:clamp(35px,4.1vw,78px);line-height:1.03;letter-spacing:-.045em;margin:clamp(16px,3vh,32px) 0 clamp(14px,2.6vh,25px);color:#fff}
+.wifi-cinema h2 em{font-style:normal;background:linear-gradient(90deg,#5defff,#9abaff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.wifi-intro{font-size:clamp(14px,1.24vw,22px);line-height:1.5;color:#c2d9ed;margin-bottom:clamp(17px,3vh,34px)}
+.wifi-intro strong{color:#fff}
+.wifi-credentials{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.4vw,22px)}
+.wifi-field{border:1px solid #68e6ff50;background:linear-gradient(135deg,#173f60d9,#0d2948aa);border-radius:17px;padding:clamp(14px,1.7vw,27px);box-shadow:0 14px 36px #0004}
+.wifi-field span{display:block;font-size:clamp(10px,.85vw,15px);color:#87e5f9;letter-spacing:.14em;font-weight:800;margin-bottom:12px}
+.wifi-field strong{display:block;font-size:clamp(20px,2vw,35px);letter-spacing:.025em;color:#fff;white-space:nowrap}
+.wifi-hint{margin-top:clamp(16px,2.5vh,30px);font-size:clamp(12px,1vw,18px);color:#a9c6df;line-height:1.45;max-width:660px}
+.wifi-right{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;gap:10px}
+.wifi-icon{color:#70e8ff;filter:drop-shadow(0 0 26px #28bfff8f);animation:wifiFloat 5s ease-in-out infinite}
+.wifi-qr-frame{background:#fff;border-radius:22px;padding:14px;box-shadow:0 0 0 1px #9deaff88,0 0 75px #25bfff35;max-width:min(21vw,280px)}
+.wifi-qr-frame img{width:100%;display:block;aspect-ratio:1}
+.wifi-qr-title{font-size:clamp(15px,1.35vw,23px);font-weight:800;color:#fff;text-align:center;margin-top:10px}
+.wifi-qr-note{font-size:clamp(11px,.85vw,15px);line-height:1.4;color:#a9c6df;text-align:center;max-width:300px}
+.wifi-bottom{position:absolute;bottom:clamp(22px,2.6vw,42px);left:clamp(30px,4.4vw,72px);right:clamp(30px,4.4vw,72px);color:#8baec9}
+.wifi-atmosphere{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
+.wifi-orbit{position:absolute;right:-9vw;top:3%;border:1px solid #5adfff2a;border-radius:50%;width:42vw;height:42vw;box-shadow:0 0 55px #28a8ff12}
+.wifi-orbit-b{right:-4vw;top:9%;width:32vw;height:32vw;animation:wifiOrbit 10s ease-in-out infinite alternate}
+.wifi-orbit-c{right:2vw;top:16%;width:21vw;height:21vw;animation:wifiOrbit 7s ease-in-out infinite alternate-reverse}
+@keyframes wifiPulse{50%{box-shadow:0 0 0 14px #56e7fc08,0 0 35px #56e7fc}}
+@keyframes wifiFloat{50%{transform:translateY(-8px)}}
+@keyframes wifiOrbit{to{transform:scale(1.07);opacity:.45}}
+@media(prefers-reduced-motion:reduce){.wifi-cinema *{animation:none!important}}
+@media(max-width:700px){.wifi-body{grid-template-columns:1fr;height:auto}.wifi-right{display:none}.wifi-cinema{overflow:auto}.wifi-bottom{position:relative;bottom:auto;left:auto;right:auto;margin-top:25px}}
 </style></head><body><main aria-label="Presentación AI Experience 2026" class="deck">
 <section class="slide active cinematic-cover"><div class="eyebrow">Clínica de Occidente · 5.º Seminario de Tecnologías en Salud</div><h1>AI <span class="accent">EXPERIENCE</span><br/>2026</h1><p>Innovación que libera tiempo para cuidar vidas.</p><div class="footer">Pulsa → para comenzar</div></section>
+<section class="slide wifi-cinema" aria-label="Conéctate a la red Wi-Fi del auditorio">
+<div class="wifi-atmosphere" aria-hidden="true"><span class="wifi-orbit wifi-orbit-a"></span><span class="wifi-orbit wifi-orbit-b"></span><span class="wifi-orbit wifi-orbit-c"></span></div>
+<div class="wifi-topline"><span>AI EXPERIENCE 2026</span><span>PREPARA TU EXPERIENCIA</span></div>
+<div class="wifi-body">
+<div class="wifi-left">
+<div class="wifi-eyebrow"><span class="wifi-pulse"></span> ANTES DE COMENZAR</div>
+<h2>Conéctate.<br><em>Participa.</em><br>Vive la experiencia</h2>
+<p class="wifi-intro">Hoy no solo vas a escuchar sobre inteligencia artificial.<br>También vas a <strong>interactuar en tiempo real</strong>.</p>
+<div class="wifi-credentials">
+<div class="wifi-field"><span>RED WI-FI</span><strong>SALON AZOR</strong></div>
+<div class="wifi-field"><span>CONTRASEÑA</span><strong>Azor1234</strong></div>
+</div>
+<div class="wifi-hint">Conéctate ahora para participar en las encuestas y demostraciones de la conferencia</div>
+</div>
+<div class="wifi-right"><div class="wifi-icon" aria-hidden="true"><svg viewBox="0 0 120 100" width="126" height="106" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"><path d="M8 34Q60 -7 112 34"/><path d="M27 54Q60 27 93 54"/><path d="M45 73Q60 60 75 73"/><circle cx="60" cy="90" r="5" fill="currentColor" stroke="none"/></svg></div>
+<div class="wifi-qr-frame"><img src="data:image/png;base64,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" alt="Código QR para conectarse a la red SALON AZOR con contraseña Azor1234"></div>
+<div class="wifi-qr-title">Escanea para conectarte</div><div class="wifi-qr-note">También puedes seleccionar la red desde los ajustes Wi-Fi de tu celular</div></div>
+</div><div class="wifi-bottom"><span>UNA EXPERIENCIA CONECTADA</span><span>CLÍNICA DE OCCIDENTE · 2026</span></div>
+</section>
 <section class="slide poll-ai-cinema" aria-label="Encuesta inaugural: ¿La IA reemplazará al personal asistencial?">
 <div class="poll-ai-halo"></div><div class="poll-ai-grid"></div>
 <div class="poll-ai-top"><span>AI EXPERIENCE 2026 · PARTICIPA EN VIVO</span><span>01 / ABRIMOS EL DEBATE</span></div>

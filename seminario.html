@@ -662,6 +662,20 @@ section.slide.v40-video-cinema.active{visibility:visible!important;opacity:1!imp
 @keyframes wifiOrbit{to{transform:scale(1.07);opacity:.45}}
 @media(prefers-reduced-motion:reduce){.wifi-cinema *{animation:none!important}}
 @media(max-width:700px){.wifi-body{grid-template-columns:1fr;height:auto}.wifi-right{display:none}.wifi-cinema{overflow:auto}.wifi-bottom{position:relative;bottom:auto;left:auto;right:auto;margin-top:25px}}
+</style><style id="poll-ai-layout-repair">
+/* Repair: original slide is a flex container and its content was pushed below the viewport */
+.slide.poll-ai-cinema{display:block!important;justify-content:initial!important;overflow:hidden!important;padding:clamp(28px,3.4vw,54px)!important}
+.poll-ai-cinema .poll-ai-top{display:flex;position:relative;z-index:2;margin:0 0 clamp(15px,2.5vh,30px)}
+.poll-ai-cinema h2{font-size:clamp(34px,3.5vw,66px)!important;line-height:1.06!important;margin:0 0 clamp(8px,1.2vh,14px)!important;position:relative;z-index:2}
+.poll-ai-cinema .poll-ai-sub{margin:0 0 clamp(16px,2.6vh,30px)!important;font-size:clamp(14px,1.25vw,21px)!important;position:relative;z-index:2}
+.poll-ai-cinema .poll-ai-layout{display:grid;grid-template-columns:minmax(210px,28%) minmax(0,1fr);gap:clamp(18px,3vw,46px);height:min(51vh,480px);max-height:none;position:relative;z-index:2}
+.poll-ai-cinema .poll-ai-results{min-width:0;gap:clamp(5px,.75vh,10px)}
+.poll-ai-cinema .poll-ai-item{padding:clamp(6px,.7vw,11px) clamp(9px,1vw,17px)}
+.poll-ai-cinema .poll-ai-line{font-size:clamp(11px,.95vw,17px)}
+.poll-ai-cinema .poll-ai-qrbox{min-width:0;min-height:0}
+.poll-ai-cinema .poll-ai-qrbox p{font-size:clamp(12px,1vw,17px)!important;margin:12px 0 7px!important}
+.poll-ai-cinema .poll-ai-footer{bottom:clamp(22px,2.4vw,38px)}
+@media(max-height:760px){.poll-ai-cinema h2{font-size:clamp(28px,3vw,51px)!important}.poll-ai-cinema .poll-ai-layout{height:48vh}.poll-ai-cinema .poll-ai-top{margin-bottom:12px}.poll-ai-cinema .poll-ai-sub{margin-bottom:12px!important}}
 </style></head><body><main aria-label="Presentación AI Experience 2026" class="deck">
 <section class="slide active cinematic-cover"><div class="eyebrow">Clínica de Occidente · 5.º Seminario de Tecnologías en Salud</div><h1>AI <span class="accent">EXPERIENCE</span><br/>2026</h1><p>Innovación que libera tiempo para cuidar vidas.</p><div class="footer">Pulsa → para comenzar</div></section>
 <section class="slide wifi-cinema" aria-label="Conéctate a la red Wi-Fi del auditorio">

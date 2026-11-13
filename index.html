@@ -355,26 +355,6 @@ body.embed .qrc{display:none}
 @keyframes aiSweepReveal{0%,8%{clip-path:inset(0 100% 0 0)}90%,100%{clip-path:inset(0 0 0 0)}}
 @keyframes aiSweepDivider{0%,8%{left:0%}90%,100%{left:100%}}
 @media(max-width:800px){.slide.transformation-cinema .transform-body{top:21%;bottom:15%}.slide.transformation-cinema .transform-head h2{font-size:clamp(22px,4vw,36px)}}
-
-/* SOLO #prueba — la página muestra solo el ejercicio de sentimiento */
-body.solo header,body.solo footer,body.solo .pnav,body.solo #pnav,body.solo #nav,body.solo .qrc,body.solo #fsbtn{display:none!important}
-body.solo{overflow-y:auto!important;height:auto!important;min-height:100vh}
-body.solo main{height:auto!important;min-height:100vh;padding:0!important;display:flex;align-items:center;justify-content:center}
-body.solo main>section:not(#s3){display:none!important}
-body.solo #s3{position:relative!important;inset:auto!important;opacity:1!important;pointer-events:auto!important;transform:none!important;display:flex!important;width:100%;max-width:1200px;margin:0 auto;padding:4vh 4vw 5vh!important;box-sizing:border-box}
-body.solo #s3 .ia{max-height:none!important;flex:none!important}
-@media (max-width:820px){
-  body.solo #s3{padding:18px 14px 28px!important}
-  body.solo #s3 h1{font-size:26px!important;line-height:1.15}
-  body.solo #s3 .tag{font-size:12px}
-  body.solo #s3 .sub{font-size:16px}
-  body.solo #s3 .ia{display:flex!important;flex-direction:column!important;gap:16px!important;margin-top:14px}
-  body.solo #s3 textarea{height:130px;font-size:17px}
-  body.solo #s3 .go{width:100%;box-sizing:border-box;text-align:center}
-  body.solo #s3 .samples button{font-size:15px;padding:12px 14px;white-space:normal}
-  body.solo #s3 .result{min-height:260px}
-  body.solo #s3 .result .lab{font-size:36px}
-}
 </style>
 </head>
 <body>
@@ -564,9 +544,6 @@ body.solo #s3 .ia{max-height:none!important;flex:none!important}
 <footer><span>Dirección de TI · Analítica · Clínica de Occidente</span><span><kbd>←</kbd> <kbd>→</kbd> o <kbd>1</kbd>–<kbd>6</kbd> para navegar · <kbd>F</kbd> pantalla completa</span></footer>
 
 <script>
-if((location.hash||"").toLowerCase()==="#prueba")document.body.classList.add("solo");
-</script>
-<script>
 (function(){
 "use strict";
 const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
@@ -578,7 +555,6 @@ function el(tag,attrs,parent){const e=document.createElementNS(SVGNS,tag);for(co
 const secs=$$('main section'), navb=$$('#nav button'); let cur=-1;
 const onEnter=[];
 function go(i){
-  if(document.body.classList.contains('solo')&&secs[Math.max(0,Math.min(secs.length-1,i))]&&secs[Math.max(0,Math.min(secs.length-1,i))].id!=='s3')return;
   i=Math.max(0,Math.min(secs.length-1,i)); if(i===cur)return; cur=i;
   secs.forEach((s,k)=>s.classList.toggle('on',k===i));
   navb.forEach((b,k)=>b.classList.toggle('on',k===i));
@@ -860,9 +836,6 @@ window.addEventListener('hashchange',()=>go(fromHash()));
 window.runAuto=()=>{const k=secs[cur].id;if(AUTOS[k])AUTOS[k]();};
 if(AUTO&&QS.get('hold')!=='1')window.runAuto();
 })();
-</script>
-<script>
-if(document.body.classList.contains("solo")){document.addEventListener("click",function(e){if(window.innerWidth>820)return;if(e.target.closest("#analizar")||e.target.closest("#samples button")){setTimeout(function(){var r=document.getElementById("res");if(r)r.scrollIntoView({behavior:"smooth",block:"center"});},350);}});}
 </script>
 </body>
 </html>

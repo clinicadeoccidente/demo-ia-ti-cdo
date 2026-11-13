@@ -606,8 +606,39 @@ section.slide.v40-video-cinema.active{visibility:visible!important;opacity:1!imp
 }
 .slide.vision2030-cinema{background:#020e20!important}
 </style>
-</head><body><main aria-label="Presentación AI Experience 2026" class="deck">
+<style>
+.poll-ai-cinema{position:relative;overflow:hidden;background:radial-gradient(ellipse at 78% 14%,#163c65 0%,#07172c 48%,#030b17 100%);padding:clamp(30px,4.2vw,70px)!important;color:#fff}
+.poll-ai-halo{position:absolute;width:56vw;height:56vw;border:1px solid #40dcff27;border-radius:50%;right:-17vw;top:-22vw;box-shadow:0 0 90px #1d94ed18;pointer-events:none}
+.poll-ai-grid{position:absolute;inset:0;background:linear-gradient(90deg,#7acfff08 1px,transparent 1px),linear-gradient(#7acfff08 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(to top,#0008,transparent 85%);pointer-events:none}
+.poll-ai-top,.poll-ai-footer{position:relative;display:flex;justify-content:space-between;font-size:clamp(10px,.9vw,15px);letter-spacing:.17em;color:#70dfff;font-weight:700}
+.poll-ai-cinema h2{position:relative;font-size:clamp(29px,3.5vw,65px);line-height:1.08;margin:clamp(18px,3vh,32px) 0 10px;max-width:1200px;color:#fff}
+.poll-ai-cinema h2 em{font-style:normal;color:#6de7ff}
+.poll-ai-sub{position:relative;font-size:clamp(13px,1.3vw,21px);color:#c1d5e9;margin:0 0 clamp(14px,2vh,26px)}
+.poll-ai-layout{position:relative;display:grid;grid-template-columns:minmax(220px,30%) 1fr;gap:clamp(18px,3vw,45px);align-items:stretch;max-height:56vh}
+.poll-ai-qrbox{background:#ffffff0d;border:1px solid #72dfff45;border-radius:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(12px,1.5vw,22px);box-shadow:0 12px 50px #0005}
+#poll-ai-qr{padding:10px;background:#fff;border-radius:12px;min-width:150px;min-height:150px;display:flex;align-items:center;justify-content:center}
+#poll-ai-qr img,#poll-ai-qr canvas{max-width:100%;height:auto!important}
+.poll-ai-qrbox p{font-size:clamp(12px,1vw,17px);font-weight:700;text-align:center;margin:12px 0 7px}
+#poll-ai-link{font-size:clamp(10px,.85vw,14px);color:#6de7ff;overflow-wrap:anywhere;text-align:center}
+.poll-ai-results{display:flex;flex-direction:column;justify-content:center;gap:clamp(6px,1vh,12px)}
+.poll-ai-item{background:#10263bb8;border:1px solid #6de7ff1c;border-radius:12px;padding:clamp(7px,.8vw,13px) clamp(10px,1.1vw,19px)}
+.poll-ai-line{display:flex;align-items:center;justify-content:space-between;gap:15px;font-size:clamp(11px,1vw,17px);color:#f5f9ff;font-weight:600}
+.poll-ai-line b{font-size:clamp(16px,1.4vw,23px);color:#6de7ff}
+.poll-ai-track{height:5px;background:#27465e;border-radius:10px;margin-top:7px;overflow:hidden}
+.poll-ai-track>div{height:100%;width:0;background:linear-gradient(90deg,#3d9cfc,#66eaff);transition:width .65s}
+.poll-ai-status{font-size:clamp(11px,.9vw,15px);color:#8ce9ff;margin:4px 0}
+.poll-ai-footer{position:absolute;bottom:clamp(18px,2.3vw,36px);left:clamp(30px,4.2vw,70px);right:clamp(30px,4.2vw,70px);color:#8aaac4}
+@media(max-width:700px){.poll-ai-layout{grid-template-columns:1fr;max-height:none}.poll-ai-qrbox{display:none}.poll-ai-cinema{overflow:auto}}
+</style></head><body><main aria-label="Presentación AI Experience 2026" class="deck">
 <section class="slide active cinematic-cover"><div class="eyebrow">Clínica de Occidente · 5.º Seminario de Tecnologías en Salud</div><h1>AI <span class="accent">EXPERIENCE</span><br/>2026</h1><p>Innovación que libera tiempo para cuidar vidas.</p><div class="footer">Pulsa → para comenzar</div></section>
+<section class="slide poll-ai-cinema" aria-label="Encuesta inaugural: ¿La IA reemplazará al personal asistencial?">
+<div class="poll-ai-halo"></div><div class="poll-ai-grid"></div>
+<div class="poll-ai-top"><span>AI EXPERIENCE 2026 · PARTICIPA EN VIVO</span><span>01 / ABRIMOS EL DEBATE</span></div>
+<h2>¿La inteligencia artificial<br><em>reemplazará al personal asistencial?</em></h2>
+<p class="poll-ai-sub">Vota con sinceridad… ¡la IA todavía no está evaluando tu respuesta! 😅</p>
+<div class="poll-ai-layout"><div class="poll-ai-qrbox"><div id="poll-ai-qr"></div><p>Escanea y vota desde tu celular</p><a id="poll-ai-link" target="_blank" rel="noopener" href="reemplazo-ia-votar.html">Abrir votación</a></div><div class="poll-ai-results"><div class="poll-ai-item"><div class="poll-ai-line"><span>A · Sí, pronto tendremos al Dr. ChatGPT pasando revista 🤖</span><b id="poll-ai-n0">0</b></div><div class="poll-ai-track"><div id="poll-ai-b0"></div></div></div><div class="poll-ai-item"><div class="poll-ai-line"><span>B · No, una IA jamás tendrá la paciencia de enfermería 💙</span><b id="poll-ai-n1">0</b></div><div class="poll-ai-track"><div id="poll-ai-b1"></div></div></div><div class="poll-ai-item"><div class="poll-ai-line"><span>C · Solo si aprende a hacer turnos de 12 horas sin quejarse ☕</span><b id="poll-ai-n2">0</b></div><div class="poll-ai-track"><div id="poll-ai-b2"></div></div></div><div class="poll-ai-item"><div class="poll-ai-line"><span>D · No nos reemplazará, pero quien sepa usarla tendrá ventaja 🚀</span><b id="poll-ai-n3">0</b></div><div class="poll-ai-track"><div id="poll-ai-b3"></div></div></div><div class="poll-ai-item"><div class="poll-ai-line"><span>E · Sí, nos reemplazará.</span><b id="poll-ai-n4">0</b></div><div class="poll-ai-track"><div id="poll-ai-b4"></div></div></div><p class="poll-ai-status" id="poll-ai-status">Conectando con Firebase…</p></div></div>
+<div class="poll-ai-footer">TU OPINIÓN IMPORTA · NO HAY RESPUESTAS CORRECTAS EN ESTA ENCUESTA</div>
+</section>
 <section aria-label="El mensaje que nos mueve" class="slide human-cinema" data-cinematic="human" data-stage="0">
 <div aria-hidden="true" class="human-photo"></div><div aria-hidden="true" class="human-vignette"></div>
 <div class="human-content">
@@ -807,4 +838,16 @@ section.slide.v40-video-cinema.active{visibility:visible!important;opacity:1!imp
  video.addEventListener('timeupdate',update);video.addEventListener('ended',()=>{phase.innerHTML='<b>AHORA</b><span>La transformación continúa con nuestro equipo</span>';bar.style.width='100%'});
  new MutationObserver(sync).observe(slide,{attributes:true,attributeFilter:['class']});sync();
 })();
+</script><script type="module">
+import {connect} from './firebase-votacion.js';
+const url=new URL('reemplazo-ia-votar.html',location.href).href;
+const link=document.getElementById('poll-ai-link');link.href=url;link.textContent=url;
+const qr=document.getElementById('poll-ai-qr');
+if(window.QRCode)new QRCode(qr,{text:url,width:190,height:190,correctLevel:QRCode.CorrectLevel.M});
+else qr.textContent='Abre el enlace para votar';
+const status=document.getElementById('poll-ai-status');
+connect({id:'reemplazoia2026',
+ onVotes:(counts,total)=>{counts.forEach((n,i)=>{document.getElementById('poll-ai-n'+i).textContent=n;document.getElementById('poll-ai-b'+i).style.width=(total?100*n/total:0)+'%'});status.textContent=total+' votos recibidos · Resultados en vivo'},
+ onPoll:p=>{if(p?.abierta===false)status.textContent='Encuesta cerrada'},
+ onError:e=>status.textContent='Error Firebase: '+e});
 </script></body></html>

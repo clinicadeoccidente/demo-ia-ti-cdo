@@ -555,7 +555,20 @@ section.slide.v40-video-cinema.active{visibility:visible!important;opacity:1!imp
 @keyframes aiFinalRule{to{width:130px}}
 @keyframes aiFinalBreathe{to{opacity:.6;transform:translate(-50%,-50%) scale(1.13)}}
 @media(prefers-reduced-motion:reduce){.ai-final-cinema.active .ai-final-kicker,.ai-final-cinema.active .ai-final-line-one,.ai-final-cinema.active .ai-final-line-two,.ai-final-cinema.active .ai-final-subtitle,.ai-final-cinema.active .ai-final-thanks{animation:none;opacity:1;transform:none;filter:none}.ai-final-cinema.active .ai-final-rule{animation:none;width:130px}.ai-final-halo{animation:none}}
-</style></head><body><main aria-label="Presentación AI Experience 2026" class="deck">
+</style>
+<style id="vision2030-fit-fix">
+/* Diapositiva 17: mostrar imagen completa sin recortar textos */
+.slide.vision2030-cinema::before{
+  inset:0!important;
+  background-size:contain!important;
+  background-position:center center!important;
+  background-repeat:no-repeat!important;
+  transform:none!important;
+  animation:none!important;
+}
+.slide.vision2030-cinema{background:#020e20!important}
+</style>
+</head><body><main aria-label="Presentación AI Experience 2026" class="deck">
 <section class="slide active cinematic-cover"><div class="eyebrow">Clínica de Occidente · 5.º Seminario de Tecnologías en Salud</div><h1>AI <span class="accent">EXPERIENCE</span><br/>2026</h1><p>Innovación que libera tiempo para cuidar vidas.</p><div class="footer">Pulsa → para comenzar</div></section>
 <section aria-label="El mensaje que nos mueve" class="slide human-cinema" data-cinematic="human" data-stage="0">
 <div aria-hidden="true" class="human-photo"></div><div aria-hidden="true" class="human-vignette"></div>
